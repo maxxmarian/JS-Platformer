@@ -1,7 +1,7 @@
-  var playerCharacter;
+var playerCharacter;
 
 
-Crafty.init(1366, 768, document.getElementById('game'));
+Crafty.init(1366, 768, document.getElementById('game')); // setup
 
 playerCharacter = Crafty.e('2D, Canvas, Color, Twoway, Gravity')
   .attr({x: 0, y: 0, w: 50, h: 50})
