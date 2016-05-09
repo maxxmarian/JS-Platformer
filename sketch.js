@@ -1,3 +1,4 @@
+
 var playerCharacter;
 
 
@@ -12,3 +13,4 @@ playerCharacter = Crafty.e('2D, Canvas, Color, Twoway, Gravity')
 Crafty.e('Floor, 2D, Canvas, Color')
   .attr({x: 0, y: 756, w: 1366, h: 10})
   .color('#F00');
+//test for commit
