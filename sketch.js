@@ -10,7 +10,9 @@ Crafty.background(170);
 playerCharacter = Crafty.e('2D, Canvas, Color, Twoway, Gravity')
   .attr({x: 0, y: 0, w: 50, h: 50})
   .color('#F00')
-  .twoway(200)
+  .twoway(400)
+  .jumpSpeed(550)
+  .gravityConst(1000)
   .gravity('Floor');
 
 Crafty.e('Floor, 2D, Canvas, Color')
