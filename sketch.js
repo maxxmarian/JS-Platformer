@@ -26,3 +26,7 @@ Crafty.e('Floor, 2D, Canvas, Color')
 Crafty.e('Floor, 2D, Canvas, Color')
   .attr({x: 700, y: 450, w: 350, h: 25})
   .color(255, 100, 150);
+
+  Crafty.e('Floor, 2D, Canvas, Color')
+    .attr({x: 700, y: 450, w: 350, h: 25})
+    .color(255, 100, 150);
