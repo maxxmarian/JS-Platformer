@@ -17,28 +17,33 @@ Crafty.background(170);
 
 
 
-playerCharacter = Crafty.e('2D, Canvas, Color, Twoway, Gravity')
+playerCharacter = Crafty.e('2D, Canvas, Color, Twoway, Gravity, Collision')
   .attr({x: 90, y: 0, w: 50, h: 50})
   .color('#F00')
   .twoway(600)
   .jumpSpeed(550)
   .gravityConst(1000)
   .gravity('Floor')
-  .bind("Moved", function(){
-    if (this.x >= (cameraWidth / 2)){
-      Crafty.viewport.x = (this.x - (cameraWidth / 2)) * -1;
-    }
+    .checkHits('Wall')
+    .bind("HitOn", function(hitData){
+        playerCharacter.x=hitData[0].obj.x+40;
+    });
 
-    if (this.y >= (cameraHeight / 2)){
-      Crafty.viewport.y = (this.y - (cameraHeight / 2)) * -1;
-    }
-  });
+  // .bind("Moved", function(){
+  //   if (this.x >= (cameraWidth / 2)){
+  //     Crafty.viewport.x = (this.x - (cameraWidth / 2)) * -1;
+  //   }
+  //
+  //   if (this.y >= (cameraHeight / 2)){
+  //     Crafty.viewport.y = (this.y - (cameraHeight / 2)) * -1;
+  //   }
+  // });
 
 Crafty.e('Floor, 2D, Canvas, Color') //1
   .attr({x: 0, y: 500, w: 2600, h: 25})
   .color(255, 100, 150);
 
-Crafty.e('Floor, 2D, Canvas, Color') // 2
+Crafty.e('Floor, Wall, 2D, Canvas, Color') // 2
   .attr({x: 0, y: 0, w: 25, h: 3000})
   .color(255, 100, 150);
 
@@ -51,7 +56,7 @@ Crafty.e('Floor, 2D, Canvas, Color') // 4
   .color(255, 100, 150);
 
 
-Crafty.e('Floor, 2D, Canvas, Color') // 5
+Crafty.e('Floor, Wall, 2D, Canvas, Color') // 5
   .attr({x: 2975, y: 0, w: 25, h: 3000})
   .color(255, 100, 150);
 
@@ -59,7 +64,7 @@ Crafty.e('Floor, 2D, Canvas, Color') // 6
   .attr({x: 0, y: 3000, w: 3000, h: 25})
   .color(255, 100, 150);
 
-Crafty.e('Floor, 2D, Canvas, Color') // 7
+Crafty.e('Floor, Wall, 2D, Canvas, Color') // 7
   .attr({x: 2575, y: 500, w: 25, h: 2200})
   .color(255, 100, 150);
 
@@ -71,11 +76,14 @@ Crafty.e('Floor, 2D, Canvas, Color') // x
   .attr({x: 200, y: 200, w: 100, h: 100})
   .color(r, g, b);
 
-
+Crafty.viewport.follow(playerCharacter,0,0);
+//Crafty.viewport.bounds=
 
 function draw(){
  colorTrip();
 }
+
+
 
 function colorTrip(){
   if(i > 0){
