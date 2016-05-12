@@ -1,6 +1,6 @@
 var i = 500;
-var windowWidth = 3000;
-var windowHeight = 3000;
+var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight;
 var cameraWidth = window.innerWidth;
 var cameraHeight = window.innerHeight;
 var playerCharacter;
@@ -67,16 +67,23 @@ Crafty.e('Floor, 2D, Canvas, Color') // 8
   .attr({x: 400, y: 2675, w: 2200, h: 25})
   .color(255, 100, 150);
 
-Crafty.e('Floor, 2D, Canvas, Color') // 8
+Crafty.e('Floor, 2D, Canvas, Color') // x
   .attr({x: 200, y: 200, w: 100, h: 100})
   .color(r, g, b);
 
 
 
 function draw(){
-
+ colorTrip();
 }
 
 function colorTrip(){
-  for(i = 500; )
+  if(i > 0){
+    i = i - 1;
+  } else {
+    r = random(floor(255));
+    g = random(floor(255));
+    b = random(floor(255));
+    i = 500;
+  }
 }
