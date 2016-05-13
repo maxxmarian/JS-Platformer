@@ -26,7 +26,12 @@ playerCharacter = Crafty.e('2D, Canvas, Color, Twoway, Gravity, Collision')
   .gravity('Floor')
     .checkHits('Wall')
     .bind("HitOn", function(hitData){
-        playerCharacter.x=hitData[0].obj.x+40;
+        if (playerCharacter.dx<=0){
+            playerCharacter.x=hitData[0].obj.x+40;
+        }
+        else {
+            playerCharacter.x=hitData[0].obj.x-70;
+        }
     });
 
   // .bind("Moved", function(){
@@ -43,7 +48,7 @@ Crafty.e('Floor, 2D, Canvas, Color') //1
   .attr({x: 0, y: 500, w: 2600, h: 25})
   .color(255, 100, 150);
 
-Crafty.e('Floor, Wall, 2D, Canvas, Color') // 2
+Crafty.e('Wall, 2D, Canvas, Color') // 2
   .attr({x: 0, y: 0, w: 25, h: 3000})
   .color(255, 100, 150);
 
