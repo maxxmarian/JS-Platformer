@@ -2302,7 +2302,7 @@ function cameraPop() {
 /**
    * In p5.play groups are collections of sprites with similar behavior.
    * For example a group may contain all the sprites in the background
-   * or all the sprites that "kill" the player.
+   * or all the sprites that "kill" the playerCharacter.
    *
    * Groups are "extended" arrays and inherit all their properties
    * e.g. group.length

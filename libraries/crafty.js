@@ -480,16 +480,16 @@ Crafty.c("Jumper", {
      *
      * @example
      * ~~~
-     * var player = Crafty.e("2D, Jumper");
-     * player.hasDoubleJumpPowerUp = true; // allow player to double jump by granting him a powerup
-     * player.bind("CheckJumping", function(ground) {
-     *     if (!ground && player.hasDoubleJumpPowerUp) { // allow player to double jump by using up his double jump powerup
-     *         player.canJump = true;
-     *         player.hasDoubleJumpPowerUp = false;
+     * var playerCharacter = Crafty.e("2D, Jumper");
+     * playerCharacter.hasDoubleJumpPowerUp = true; // allow playerCharacter to double jump by granting him a powerup
+     * playerCharacter.bind("CheckJumping", function(ground) {
+     *     if (!ground && playerCharacter.hasDoubleJumpPowerUp) { // allow playerCharacter to double jump by using up his double jump powerup
+     *         playerCharacter.canJump = true;
+     *         playerCharacter.hasDoubleJumpPowerUp = false;
      *     }
      * });
-     * player.bind("LandedOnGround", function(ground) {
-     *     player.hasDoubleJumpPowerUp = true; // give player new double jump powerup upon landing
+     * playerCharacter.bind("LandedOnGround", function(ground) {
+     *     playerCharacter.hasDoubleJumpPowerUp = true; // give playerCharacter new double jump powerup upon landing
      * });
      * ~~~
      */
@@ -4305,14 +4305,14 @@ module.exports = {
      *
      * @example
      * Normally you'd use Crafty's built-in mouse component, but for the sake of an example let's pretend that doesn't exist.  
-     * The following code will add a stage-wide MouseDown event listener to the player, and log both which button was pressed
+     * The following code will add a stage-wide MouseDown event listener to the playerCharacter, and log both which button was pressed
      * and the (x,y) coordinates in viewport/world/game space.
      * ~~~
-     * var player = Crafty.e("2D");
-     *     player.onMouseDown = function(e) {
+     * var playerCharacter = Crafty.e("2D");
+     *     playerCharacter.onMouseDown = function(e) {
      *         Crafty.log(e.mouseButton, e.realX, e.realY);
      *     };
-     * Crafty.addEvent(player, Crafty.stage.elem, "mousedown", player.onMouseDown);
+     * Crafty.addEvent(playerCharacter, Crafty.stage.elem, "mousedown", playerCharacter.onMouseDown);
      * ~~~
      * @see Crafty.removeEvent
      */
@@ -5175,7 +5175,7 @@ try {
  * ~~~
  * var heroname = Crafty.storage('name');
  * if(!heroname){
- *   // Maybe ask the player what their name is here
+ *   // Maybe ask the playerCharacter what their name is here
  *   heroname = 'Guest';
  * }
  * // Do something with heroname
@@ -12691,10 +12691,10 @@ Crafty.c("Supportable", {
      *
      * @example
      * ~~~
-     * var player = Crafty.e("2D, Gravity");
-     * player.bind("CheckLanding", function(ground) {
-     *     if (player.y + player.h > ground.y + player.dy) { // forbid landing, if player's feet are not above ground
-     *         player.canLand = false;
+     * var playerCharacter = Crafty.e("2D, Gravity");
+     * playerCharacter.bind("CheckLanding", function(ground) {
+     *     if (playerCharacter.y + playerCharacter.h > ground.y + playerCharacter.dy) { // forbid landing, if playerCharacter's feet are not above ground
+     *         playerCharacter.canLand = false;
      *     }
      * });
      * ~~~
@@ -12720,8 +12720,8 @@ Crafty.c("Supportable", {
      *
      * Enable ground detection for this entity no matter whether comp parameter is specified or not.
      * If comp parameter is specified all entities with that component will stop this entity from falling.
-     * For a player entity in a platform game this would be a component that is added to all entities
-     * that the player should be able to walk on.
+     * For a playerCharacter entity in a platform game this would be a component that is added to all entities
+     * that the playerCharacter should be able to walk on.
      * 
      * @example
      * ~~~
@@ -12786,7 +12786,7 @@ Crafty.c("Supportable", {
             for (; i < l; ++i) {
                 obj = results[i];
                 oarea = obj._cbr || obj._mbr || obj;
-                // check for an intersection with the player
+                // check for an intersection with the playerCharacter
                 if (obj !== this && obj.__c[groundComp] && overlap(oarea, area)) {
                     this.canLand = true;
                     this.trigger("CheckLanding", obj); // is entity allowed to land?
@@ -12876,8 +12876,8 @@ Crafty.c("Gravity", {
      *
      * Enable gravity for this entity no matter whether comp parameter is specified or not.
      * If comp parameter is specified all entities with that component will stop this entity from falling.
-     * For a player entity in a platform game this would be a component that is added to all entities
-     * that the player should be able to walk on.
+     * For a playerCharacter entity in a platform game this would be a component that is added to all entities
+     * that the playerCharacter should be able to walk on.
      * See the Supportable component documentation for additional methods & events that are available.
      *
      * @example
