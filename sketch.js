@@ -30,19 +30,19 @@ Crafty.enterScene("level0");
 Crafty.viewport.follow(playerCharacter,0,0);
 //Crafty.viewport.bounds=
 
-function draw(){
- colorTrip();
-}
-
-
-
-function colorTrip(){
-  if(i > 0){
-    i = i - 1;
-  } else {
-    r = random(floor(255));
-    g = random(floor(255));
-    b = random(floor(255));
-    i = 500;
-  }
-}
+// function draw(){
+//  colorTrip();
+// }
+//
+//
+//
+// function colorTrip(){
+//   if(i > 0){
+//     i = i - 1;
+//   } else {
+//     r = random(floor(255));
+//     g = random(floor(255));
+//     b = random(floor(255));
+//     i = 500;
+//   }
+// }
