@@ -1,14 +1,11 @@
-
-var windowWidth = window.innerWidth;
-var windowHeight = window.innerHeight;
-var cameraWidth = window.innerWidth;
-var cameraHeight = window.innerHeight;
+var windowWidth = window.innerWidth -16;
+var windowHeight = window.innerHeight -16;
 var player;
 var camera;
 var r;
 var g;
 var b;
-
+var finishLine;
 
 function colorTrip(){
   r = Math.round(Math.random() * (255 - 0 + 1) + 0);
@@ -18,14 +15,16 @@ function colorTrip(){
 
 colorTrip();
 
-
 Crafty.init(windowWidth, windowHeight, document.getElementById('game')); // setup
 Crafty.background();
 
-
-
-    Crafty.scene('level0',level0);
+Crafty.scene('level0',level0);
 Crafty.enterScene("level0");
 
-Crafty.viewport.follow(player, 0, 0);
-//Crafty.viewport.bounds=
+// if(2299 < player.x < 2306 && 525 < player.y < 910){
+//   //alert("shiiiiiiidddddddd");
+//   //console.log("kek");
+//   // finishLine.destroy();
+//   // Crafty.scene('level1',level1);
+//   // Crafty.enterScene("level1");
+// }
