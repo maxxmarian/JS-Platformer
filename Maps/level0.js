@@ -89,9 +89,36 @@ function level0(){
     .attr({x: 455, y: 1980, w: 2120, h: 25})
     .color(r, g, b);
 
-  finishLine = Crafty.e('2D, Canvas, Color, Collision') // finish line
-    finishLine.attr({x: 2300, y: 525, w: 6, h: 435})
-    finishLine.color(0, 0, 0, 0.5);
+
+
+  Crafty.e('Floor, 2D, Canvas, Color') // dogerBox1
+    .attr({x: 2670, y: 650, w: 110, h: 100})
+    .color(0, 0, 0);
+
+  Crafty.e('Floor, 2D, Canvas, Color') // dogerBox2
+    .attr({x: 2810, y: 920, w: 110, h: 100})
+    .color(0, 0, 0);
+
+  Crafty.e('Floor, 2D, Canvas, Color') // dogerBox3
+    .attr({x: 2670, y: 1190, w: 110, h: 100})
+    .color(0, 0, 0);
+
+  Crafty.e('Floor, 2D, Canvas, Color') // dogerBox4
+    .attr({x: 2810, y: 1460, w: 110, h: 100})
+    .color(0, 0, 0);
+
+  Crafty.e('Floor, 2D, Canvas, Color') // dogerBox5
+    .attr({x: 2670, y: 1730, w: 110, h: 100})
+    .color(0, 0, 0);
+
+  Crafty.e('Floor, 2D, Canvas, Color') // dogerBox6
+    .attr({x: 2810, y: 2000, w: 110, h: 100})
+    .color(0, 0, 0);
+
+
+  // finishLine = Crafty.e('2D, Canvas, Color, Collision') // finish line
+  //   finishLine.attr({x: 2300, y: 525, w: 6, h: 435})
+  //   finishLine.color(0, 0, 0, 0.5);
 
 }
 

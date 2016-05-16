@@ -28,3 +28,14 @@ Crafty.enterScene("level0");
 //   // Crafty.scene('level1',level1);
 //   // Crafty.enterScene("level1");
 // }
+
+// function keyPressed(){
+//   if(key === 'R'){
+//     restart();
+//   }
+// }
+//
+// function restart(){
+//   player.x = 2300;
+//   player.y = 450;
+// }
