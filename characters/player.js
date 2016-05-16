@@ -17,5 +17,15 @@ function player() {
             else {
                 player.x = hitData[0].obj.x - 70;
             }
+        })
+
+        .bind("Moved", function(){
+          if (this.x >= (cameraWidth / 2)){
+            Crafty.viewport.x = (this.x - (cameraWidth / 2)) * -1;
+          }
+
+          if (this.y >= (cameraHeight / 2)){
+            Crafty.viewport.y = (this.y - (cameraHeight / 2)) * -1;
+          }
         });
 }
