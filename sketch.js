@@ -7,8 +7,8 @@ var width;
 var height;
 var winWidth;
 var winHeight;
-//var cyan = 80, 200, 255
-//var colorTrip = [cyan];
+var finishLine;
+
 function setup(){
   createCanvas(0,0);
   winWidth=windowWidth;
@@ -18,6 +18,16 @@ function setup(){
 function draw(){
 
 }
+
+function colorTrip(){
+  r = Math.round(Math.random() * (255 - 0 + 1) + 0);
+  g = Math.round(Math.random() * (255 - 0 + 1) + 0);
+  b = Math.round(Math.random() * (255 - 0 + 1) + 0);
+}
+
+colorTrip();
+
+
 Crafty.init(winWidth, winHeight, document.getElementById('game')); // setup
 //Crafty.viewport.init(window.innerWidth-17,  window.innerHeight-17, document.getElementById('game'))
 Crafty.background(170);
@@ -35,12 +45,7 @@ function restart(){
 }
 
 function colorTrip(){
-  if(i > 0){
-    i = i - 1;
-  } else {
-    r = random(floor(255));
-    g = random(floor(255));
-    b = random(floor(255));
-    i = 500;
-  }
+  r = Math.round(Math.random() * (255 - 0 + 1) + 0);
+  g = Math.round(Math.random() * (255 - 0 + 1) + 0);
+  b = Math.round(Math.random() * (255 - 0 + 1) + 0);
 }

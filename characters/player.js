@@ -6,8 +6,8 @@ function playerCharacter() {
         .attr({x: 90, y: 20, w: 50, h: 50})
         .color('#F00')
         .twoway(600)
-        .jumpSpeed(550)
-        .gravityConst(1000)
+        .jumpSpeed(650)
+        .gravityConst(1100)
         .gravity('Floor')
         .checkHits('Wall')
         .bind("Moved", function(moveData) {
