@@ -117,5 +117,10 @@ function level0() {
 
   Crafty.e('finishLine, 2D, Canvas, Color, Collision') // finish line
     .attr({x: 2300, y: 525, w: 6, h: 435})
-    .color(0, 0, 0, 0.5);
+    .color(0, 0, 0, 0.5)
+      .checkHits("Player")
+    .bind("HitOn", function (hitdata) {
+        console.log("colide!");
+        Crafty.enterScene("level1");
+    });
 }
