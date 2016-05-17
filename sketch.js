@@ -5,19 +5,20 @@ var g;
 var b;
 var width;
 var height;
-var test1;
-var test2;
+var winWidth;
+var winHeight;
 //var cyan = 80, 200, 255
 //var colorTrip = [cyan];
 function setup(){
   createCanvas(0,0);
-  test1=windowWidth;
-  test2=windowHeight;
+  winWidth=windowWidth;
+  winHeight=windowHeight;
+  colorTrip();
 }
 function draw(){
 
 }
-Crafty.init(test1, test2, document.getElementById('game')); // setup
+Crafty.init(winWidth, winHeight, document.getElementById('game')); // setup
 //Crafty.viewport.init(window.innerWidth-17,  window.innerHeight-17, document.getElementById('game'))
 Crafty.background(170);
 
