@@ -113,4 +113,9 @@ function level0() {
   Crafty.e('Floor, 2D, Canvas, Color') // dogerBox6
     .attr({x: 2810, y: 2000, w: 110, h: 100})
     .color(0, 0, 0);
+
+
+  Crafty.e('finishLine, 2D, Canvas, Color, Collision') // finish line
+    .attr({x: 2300, y: 525, w: 6, h: 435})
+    .color(0, 0, 0, 0.5);
 }

@@ -43,9 +43,3 @@ Crafty.enterScene("level0");
 function restart(){
     Crafty.enterScene(Crafty._current);
 }
-
-function colorTrip(){
-  r = Math.round(Math.random() * (255 - 0 + 1) + 0);
-  g = Math.round(Math.random() * (255 - 0 + 1) + 0);
-  b = Math.round(Math.random() * (255 - 0 + 1) + 0);
-}
