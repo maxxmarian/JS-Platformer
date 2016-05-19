@@ -39,8 +39,12 @@ Crafty.scene('level1', level1);
 Crafty.enterScene("level0");
 
 
-//Crafty.viewport.bounds=
 
 function restart(){
     Crafty.enterScene(Crafty._current);
+}
+
+
+function timer(){
+  timer.elapsedSeconds = 0;
 }
