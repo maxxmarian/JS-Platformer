@@ -30,7 +30,7 @@ function level0() {
     .attr({x: 0, y: 3000, w: 2675, h: 25})
     .color(r, g, b);
 
-  Crafty.e('Floor, Wall, 2D, Canvas, Color') // 7
+  Crafty.e('Wall, Wall, 2D, Canvas, Color') // 7
     .attr({x: 2575, y: 500, w: 25, h: 2200})
     .color(r, g, b);
 
@@ -82,7 +82,7 @@ function level0() {
     .attr({x: 260, y: 960, w: 2315, h: 25})
     .color(r, g, b);
 
-  Crafty.e('Floor, 2D, Canvas, Color') // 20
+  Crafty.e('Wall, 2D, Canvas, Color') // 20
     .attr({x: 430, y: 985, w: 25, h: 1020})
     .color(r, g, b);
 
