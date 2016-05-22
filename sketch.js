@@ -36,7 +36,8 @@ Crafty.background(170);
 
 
 playerCharacter();
-Crafty.scene('level0',level0);
+Crafty.scene('testMap', testMap);
+Crafty.scene('level0', level0);
 Crafty.scene('level1', level1);
 Crafty.enterScene("level0");
 
