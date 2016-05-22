@@ -6,6 +6,7 @@ function level0() {
   playerCharacter.y = 0;
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}};
+  
   Crafty.e('Floor, 2D, Canvas, Color') //1
     .attr({x: 0, y: 500, w: 2600, h: 25})
     .color(r, g, b);
@@ -121,6 +122,7 @@ function level0() {
       .checkHits("Player")
     .bind("HitOn", function (hitdata) {
         console.log("collide!");
+        confirm("You finished Level 0 with a time of "+timer.timeDisplay+"!")
         Crafty.enterScene("level1");
     });
 }

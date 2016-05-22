@@ -8,15 +8,20 @@ var height;
 var winWidth;
 var winHeight;
 var finishLine;
-
+var elapsedSeconds=0;
+var secondsDisplay=0;
+var elapsedMinutes=0;
+var timerEntity;
+setInterval(function(){timer()},1000);
 function setup(){
-  createCanvas(0,0);
+  createCanvas(200,200);
   winWidth=windowWidth;
   winHeight=windowHeight;
   colorTrip();
+
 }
 function draw(){
-
+  //text('Elapsed Time:'+ timeDisplay,100,100);
 }
 
 function colorTrip(){
@@ -40,11 +45,46 @@ Crafty.enterScene("level0");
 
 
 
+
 function restart(){
     Crafty.enterScene(Crafty._current);
+    if (Crafty._current==='level0'){
+      timer.elapsedSeconds=0;
+      timer.elapsedSeconds=0;
+      if (timerEntity!==undefined){
+        timerEntity.destroy()
+      }
+      timerEntity = Crafty.e("2D, DOM, Text").attr({ x: abs(Crafty.viewport._x)+ 50, y: abs(Crafty.viewport._y) + 50}).text('Elapsed Time:'+ timeDisplayCheck());
+    }
 }
 
 
-function timer(){
-  timer.elapsedSeconds = 0;
+function timer() {
+  elapsedSeconds = elapsedSeconds + 1;
+  if (elapsedSeconds >= 60) {
+    elapsedMinutes = elapsedSeconds / 60;
+    elapsedSeconds = 0;
+  }
+    if (elapsedSeconds === 0) {
+    secondsDisplay = elapsedSeconds.toString() + "0"
+    }
+    else {
+    secondsDisplay = elapsedSeconds.toString();
+    }
+    if (elapsedSeconds>0&&elapsedSeconds<10){
+      secondsDisplay = "0" + elapsedSeconds.toString();
+    }
+  timer.timeDisplay = elapsedMinutes.toString() + ":" + secondsDisplay;
+  if (timerEntity!==undefined){
+    timerEntity.destroy()
+  }
+  timerEntity = Crafty.e("2D, DOM, Text").attr({ x: abs(Crafty.viewport._x)+ 50, y: abs(Crafty.viewport._y) + 50}).text('Elapsed Time:'+ timeDisplayCheck());
+}
+function timeDisplayCheck(){
+  if (timer.timeDisplay===undefined){
+    return "0:00"
+  }
+  else {
+    return timer.timeDisplay;
+  }
 }
