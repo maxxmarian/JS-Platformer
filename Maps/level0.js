@@ -122,7 +122,7 @@ function level0() {
       .checkHits("Player")
     .bind("HitOn", function (hitdata) {
         console.log("collide!");
-        confirm("You finished Level 0 with a time of "+timer.timeDisplay+"!")
+        confirm("You finished Level 0 with a time of "+timer.timeDisplay+"!");
         Crafty.enterScene("level1");
     });
 }
