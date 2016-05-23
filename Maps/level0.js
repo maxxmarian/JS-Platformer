@@ -6,7 +6,7 @@ function level0() {
   playerCharacter.y = 0;
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}};
-  
+
   Crafty.e('Floor, 2D, Canvas, Color') //1
     .attr({x: 0, y: 500, w: 2600, h: 25})
     .color(r, g, b);
@@ -111,9 +111,9 @@ function level0() {
     .attr({x: 2670, y: 2130, w: 110, h: 100})
     .color(0, 0, 0);
 
-  Crafty.e('Floor, 2D, Canvas, Color') // dogerBox6
-    .attr({x: 2810, y: 2500, w: 110, h: 100})
-    .color(0, 0, 0);
+  // Crafty.e('Floor, 2D, Canvas, Color') // dogerBox6
+  //   .attr({x: 2810, y: 2500, w: 110, h: 100})
+  //   .color(0, 0, 0);
 
 
   Crafty.e('finishLine, 2D, Canvas, Color, Collision') // finish line
