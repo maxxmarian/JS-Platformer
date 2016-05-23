@@ -19,7 +19,7 @@ function playerCharacter() {
             if (timerEntity!==undefined){
                 timerEntity.destroy()
             }
-            timerEntity = Crafty.e("2D, DOM, Text").attr({ x: abs(Crafty.viewport._x)+ 50, y: abs(Crafty.viewport._y) + 50}).text('Elapsed Time:'+ timeDisplayCheck());
+            timerEntity = Crafty.e("2D, DOM, Text").attr({ x: Math.abs(Crafty.viewport._x)+ 50, y: Math.abs(Crafty.viewport._y) + 50}).text('Elapsed Time:'+ timeDisplayCheck());
         })
         .bind("HitOn", function (hitData) {
             if (playerCharacter.dx <= 0) {
