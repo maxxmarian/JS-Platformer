@@ -8,14 +8,14 @@ var height;
 var winWidth;
 var winHeight;
 var finishLine;
-<<<<<<< 75a1678081bfb640e2c78d17b5777c3da044718b
+
 //var timer.timerEntity;
-=======
+
 var elapsedSeconds=0;
 var secondsDisplay=0;
 var elapsedMinutes=0;
 var timerEntity;
->>>>>>> fixed some collisions, finished level, started level2
+
 
 function setup(){
   createCanvas(200,200);

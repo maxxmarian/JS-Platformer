@@ -14,7 +14,7 @@ function level2(){
     .attr({x: 0, y: 300, w: 300, h: 25})
     .color(r, g, b);
 
-  for(i = 0; i < 5; i++){
+  for(i = 0; i < 60; i++){
     randomPlatform();
   }
 }
