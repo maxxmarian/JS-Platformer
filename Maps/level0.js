@@ -2,8 +2,10 @@
  * Created by maxxx on 5/13/16.
  */
 function level0() {
+  timer();
+  playerCharacter.vx = 0;
   playerCharacter.x = 90;
-  playerCharacter.y = 0;
+  playerCharacter.y = 20;
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}};
 
@@ -36,7 +38,7 @@ function level0() {
     .color(r, g, b);
 
   Crafty.e('Floor, 2D, Canvas, Color') // 8
-    .attr({x: 400, y: 2675, w: 2200, h: 25})
+    .attr({x: 400, y: 2675, w: 2175, h: 25})
     .color(r, g, b);
 
   Crafty.e('Floor, 2D, Canvas, Color') // 9
@@ -116,10 +118,10 @@ function level0() {
   //   .color(0, 0, 0);
 
 
-  Crafty.e('finishLine, 2D, Canvas, Color, Collision') // finish line
+  Crafty.e('finishLine, 2D, Canvas, Color, Collision') // finish line 1
     .attr({x: 2300, y: 525, w: 6, h: 435})
     .color(0, 0, 0, 0.5)
-      .checkHits("Player")
+    .checkHits("Player")
     .bind("HitOn", function (hitdata) {
         console.log("collide!");
         confirm("You finished Level 0 with a time of "+timer.timeDisplay+"!");

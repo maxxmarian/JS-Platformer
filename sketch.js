@@ -1,4 +1,4 @@
-var i = 500;
+var i = 0;
 var camera;
 var r;
 var g;
@@ -8,7 +8,14 @@ var height;
 var winWidth;
 var winHeight;
 var finishLine;
+<<<<<<< 75a1678081bfb640e2c78d17b5777c3da044718b
 //var timer.timerEntity;
+=======
+var elapsedSeconds=0;
+var secondsDisplay=0;
+var elapsedMinutes=0;
+var timerEntity;
+>>>>>>> fixed some collisions, finished level, started level2
 
 function setup(){
   createCanvas(200,200);
@@ -39,6 +46,7 @@ playerCharacter();
 Crafty.scene('testMap', testMap);
 Crafty.scene('level0', level0);
 Crafty.scene('level1', level1);
+Crafty.scene('level2', level2);
 Crafty.enterScene("level0");
 
 
@@ -55,5 +63,3 @@ function restart(){
       timer.timerEntity = Crafty.e("2D, DOM, Text").attr({ x: Math.abs(Crafty.viewport._x)+ 50, y: Math.abs(Crafty.viewport._y) + 50}).text('Elapsed Time:'+ timeDisplayCheck());
     }
 }
-
-
