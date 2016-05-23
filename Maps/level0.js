@@ -2,13 +2,14 @@
  * Created by maxxx on 5/13/16.
  */
 function level0() {
-    playerCharacter.x = 90;
-    playerCharacter.y = 20;
-    Crafty.viewport.follow(playerCharacter, 0, 0);
-    Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}};
+  playerCharacter.x = 90;
+  playerCharacter.y = 0;
+  Crafty.viewport.follow(playerCharacter, 0, 0);
+  Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}};
+  
   Crafty.e('Floor, 2D, Canvas, Color') //1
-      .attr({x: 0, y: 500, w: 2600, h: 25})
-      .color(r, g, b);
+    .attr({x: 0, y: 500, w: 2600, h: 25})
+    .color(r, g, b);
 
   Crafty.e('Wall, 2D, Canvas, Color') // 2
     .attr({x: 0, y: 0, w: 25, h: 3000})
@@ -30,7 +31,7 @@ function level0() {
     .attr({x: 0, y: 3000, w: 2675, h: 25})
     .color(r, g, b);
 
-  Crafty.e('Floor, Wall, 2D, Canvas, Color') // 7
+  Crafty.e('Wall, Wall, 2D, Canvas, Color') // 7
     .attr({x: 2575, y: 500, w: 25, h: 2200})
     .color(r, g, b);
 
@@ -82,7 +83,7 @@ function level0() {
     .attr({x: 260, y: 960, w: 2315, h: 25})
     .color(r, g, b);
 
-  Crafty.e('Floor, 2D, Canvas, Color') // 20
+  Crafty.e('Wall, 2D, Canvas, Color') // 20
     .attr({x: 430, y: 985, w: 25, h: 1020})
     .color(r, g, b);
 
@@ -95,23 +96,23 @@ function level0() {
     .color(0, 0, 0);
 
   Crafty.e('Floor, 2D, Canvas, Color') // dogerBox2
-    .attr({x: 2810, y: 920, w: 110, h: 100})
+    .attr({x: 2810, y: 1020, w: 110, h: 100})
     .color(0, 0, 0);
 
   Crafty.e('Floor, 2D, Canvas, Color') // dogerBox3
-    .attr({x: 2670, y: 1190, w: 110, h: 100})
+    .attr({x: 2670, y: 1390, w: 110, h: 100})
     .color(0, 0, 0);
 
   Crafty.e('Floor, 2D, Canvas, Color') // dogerBox4
-    .attr({x: 2810, y: 1460, w: 110, h: 100})
+    .attr({x: 2810, y: 1760, w: 110, h: 100})
     .color(0, 0, 0);
 
   Crafty.e('Floor, 2D, Canvas, Color') // dogerBox5
-    .attr({x: 2670, y: 1730, w: 110, h: 100})
+    .attr({x: 2670, y: 2130, w: 110, h: 100})
     .color(0, 0, 0);
 
   Crafty.e('Floor, 2D, Canvas, Color') // dogerBox6
-    .attr({x: 2810, y: 2000, w: 110, h: 100})
+    .attr({x: 2810, y: 2500, w: 110, h: 100})
     .color(0, 0, 0);
 
 
@@ -120,7 +121,8 @@ function level0() {
     .color(0, 0, 0, 0.5)
       .checkHits("Player")
     .bind("HitOn", function (hitdata) {
-        console.log("colide!");
+        console.log("collide!");
+        confirm("You finished Level 0 with a time of "+timer.timeDisplay+"!")
         Crafty.enterScene("level1");
     });
 }

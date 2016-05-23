@@ -1,9 +1,10 @@
 /**
- * Created by maxx on 5/13/16.
+ * Created by maxxx on 5/13/16.
  */
 function playerCharacter() {
+    
     playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Twoway, Gravity, Collision, Persist')
-        .attr({x: 90, y: 20, w: 50, h: 50})
+        .attr({x: 90, y: 30, w: 50, h: 50})
         .color('#F00')
         .twoway(600)
         .jumpSpeed(650)
@@ -15,6 +16,10 @@ function playerCharacter() {
                 confirm("You Failed Level "+Crafty._current.slice(5));
                 restart();
             }
+            if (timerEntity!==undefined){
+                timerEntity.destroy()
+            }
+            timerEntity = Crafty.e("2D, DOM, Text").attr({ x: Math.abs(Crafty.viewport._x)+ 50, y: Math.abs(Crafty.viewport._y) + 50}).text('Elapsed Time:'+ timeDisplayCheck());
         })
         .bind("HitOn", function (hitData) {
             if (playerCharacter.dx <= 0) {
