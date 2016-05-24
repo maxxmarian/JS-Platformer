@@ -37,7 +37,7 @@ function randomPlatform(){
 }
 
 function quantumFinish(){
-  Crafty.e(', 2D, Canvas, Color') // 4
+  Crafty.e(', 2D, Canvas, Color') // a
     .attr({x: 3000, y: 0, w: 25, h: 3000})
     .color(r, g, b);
 }
