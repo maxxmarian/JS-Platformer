@@ -16,6 +16,10 @@ function playerCharacter() {
                 confirm("You Failed Level "+Crafty._current.slice(5));
                 restart();
             }
+            if(moveData.axis==="x"&&moveData.oldValue<0||moveData.axis==="x"&&moveData.oldValue>=Crafty.viewport.bounds.max.x){
+                confirm("You Failed Level "+Crafty._current.slice(5));
+                restart();
+            }
             if (timer.timerEntity!==undefined){
                 timer.timerEntity.destroy()
             }
