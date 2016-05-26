@@ -1,6 +1,6 @@
 function level1(){
-  playerCharacter.x = 90;
-  playerCharacter.y = 20;
+  playerCharacter.x = 1300;
+  playerCharacter.y = 1050;
   playerCharacter.vx = 0;
   playerCharacter.vy = 0;
   Crafty.viewport.follow(playerCharacter, 0, 0);

@@ -2,10 +2,10 @@ var moveBlocks = [moveBlock1];
 var moveBlock;
 
 function testMap(){
-  timer();
-  playerCharacter.vx = 0;
   playerCharacter.x = 50;
   playerCharacter.y = 400;
+  playerCharacter.vx = 0;
+  playerCharacter.vy = 0;
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
 

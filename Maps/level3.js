@@ -1,9 +1,10 @@
 var moveBlocks = []
 platformSpeed = (Math.round(Math.random() * (500 - 50 + 1) + 50));
 function level3(){
+  playerCharacter.x = 110;
+  playerCharacter.y = 35;
   playerCharacter.vx = 0;
-  playerCharacter.x = 90;
-  playerCharacter.y = 30;
+  playerCharacter.vy = 0;
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
 
