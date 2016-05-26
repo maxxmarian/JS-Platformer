@@ -63,10 +63,6 @@ function restart(){
     }
 }
 
-/**
- * Created by maxx on 5/24/16.
- */
-
 Crafty.c("Tower", {
 
     init: function () {

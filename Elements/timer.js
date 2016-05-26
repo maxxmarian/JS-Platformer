@@ -37,3 +37,4 @@ function timeDisplayCheck(){
         return timer.timeDisplay;
     }
 }
+
