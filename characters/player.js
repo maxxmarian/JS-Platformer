@@ -2,8 +2,8 @@
  * Created by maxxx on 5/13/16.
  */
 function playerCharacter() {
-    
-    playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Twoway, Gravity, Collision, Persist')
+
+    playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Twoway, Gravity, Collision, Motion, Persist')
         .attr({x: 90, y: 30, w: 50, h: 50})
         .color('#F00')
         .twoway(600)

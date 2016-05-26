@@ -8,9 +8,6 @@ var height;
 var winWidth;
 var winHeight;
 var finishLine;
-
-//var timer.timerEntity;
-
 var elapsedSeconds=0;
 var secondsDisplay=0;
 var elapsedMinutes=0;
@@ -25,7 +22,13 @@ function setup(){
 
 }
 function draw(){
-  //text('Elapsed Time:'+ timeDisplay,100,100);
+  if(moveBlock[i].x > 700){
+    moveLeft();
+  }
+
+  if(moveBlock[i].x < 300){
+    moveRight();
+  }
 }
 
 function colorTrip(){
@@ -48,10 +51,7 @@ Crafty.scene('level0', level0);
 Crafty.scene('level1', level1);
 Crafty.scene('level2', level2);
 Crafty.scene('level3', level3);
-Crafty.enterScene("level2");
-
-
-
+Crafty.enterScene("testMap");
 
 function restart(){
     Crafty.enterScene(Crafty._current);
