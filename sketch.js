@@ -51,11 +51,6 @@ Crafty.scene('level2', level2);
 Crafty.enterScene("level0");
 
 
-
-var bulletX;
-var bullety;
-var hitObject2;
-var firedUpon=true;
 function restart(){
     Crafty.enterScene(Crafty._current);
     if (Crafty._current==='level0'){
@@ -73,6 +68,7 @@ function restart(){
  */
 
 Crafty.c("Tower", {
+
     init: function () {
         Crafty.sprite("assets/watchtower.png", {towersprite:[0,0,50,120]});
         this.addComponent('2D, Color, Canvas, towersprite');
@@ -85,8 +81,6 @@ Crafty.c("Tower", {
     place: function(x, y) {
         this.x = x;
         this.y = y;
-        bulletX=this.x;
-        bullety=this.y;
         return this;
     },
     fire: function(updateInterval) {
@@ -96,13 +90,17 @@ Crafty.c("Tower", {
     delayedFire: function(delay,updateInterval){
         setTimeout(function(){outsideFire(updateInterval,this.x,this.y)},delay);
     },
-    proximityFire: function(proximity, updateInterval){
+    proximityFire: function(proximity, updateInterval, towerX, towerY){
+        var firedUpon=true;
         playerCharacter.bind("Moved",function (moveData) {
-            if(playerCharacter._x<=this.x-proximity&&playerCharacter._x>=this.x+proximity&&playerCharacter._y<=this.y-proximity&&playerCharacter._y>=this.y+proximity&&firedUpon){
-                firedUpon=false;
+            if (firedUpon) {
+                if (playerCharacter._x <= towerX - proximity || playerCharacter._x >= towerX + proximity || playerCharacter._y <= towerY - proximity || playerCharacter._y >= towerY + proximity) {
+                    console.log("i should be false!");
+                    firedUpon = false;
+                }
             }
-            if(playerCharacter._x>=this.x-proximity&&playerCharacter._x<=this.x+proximity&&playerCharacter._y>=this.y-proximity&&playerCharacter._y<=this.y+proximity&&!firedUpon){
-                outsideFire(updateInterval,this.x,this.y);
+            if(playerCharacter._x>=towerX-proximity&&playerCharacter._x<=towerX+proximity&&playerCharacter._y>=towerY-proximity&&playerCharacter._y<=towerY+proximity&&firedUpon==false){
+                outsideFire(updateInterval, towerX, towerY);
                 firedUpon=true;
             }
         });
@@ -132,15 +130,12 @@ function outsideFire(updateInterval,towerX,towerY){
         .color(0,0,0)
         .checkHits('Player', 'Wall')
         .bind("HitOn", function (hitData) {
-
-            var hitObject = hitData[0].obj;
-            hitObject2 = hitObject.__c;
-            console.log(hitObject);
-            if (hitObject2.Player) {
+            var hitObject = hitData[0].obj.__c;
+            if (hitObject.Player) {
                 confirm("You Failed Level " + Crafty._current.slice(5));
                 restart();
             }
-            if(hitObject2.Wall||hitObject2.Floor){
+            if(hitObject.Wall||hitObject.Floor){
                 currentBullet.destroy();
             }
         });

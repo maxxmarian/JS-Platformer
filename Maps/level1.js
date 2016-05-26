@@ -14,7 +14,7 @@ function level1(){
         //.attr({x: 400, y: 400, w:30, h:30})
         .place(300,300)
             //.fire(50);
-        .proximityFire(10,50);
+        .proximityFire(200,50,300,300);
         //.color(r,g,b);
 
   Crafty.e('Wall, 2D, Canvas, Color') // 2
