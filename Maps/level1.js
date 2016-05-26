@@ -1,7 +1,6 @@
 function level1(){
-    //level1.tower1;
-  playerCharacter.x = 90;
-  playerCharacter.y = 50;
+  playerCharacter.x = 100;
+  playerCharacter.y = 20;
   playerCharacter.vx = 0;
   playerCharacter.vy = 0;
   Crafty.viewport.follow(playerCharacter, 0, 0);
@@ -10,12 +9,6 @@ function level1(){
   Crafty.e('Floor, 2D, Canvas, Color') // 1
     .attr({x: 0, y: 500, w: 2600, h: 25})
     .color(r, g, b);
-        level1.tower1 = Crafty.e("Tower")
-        //.attr({x: 400, y: 400, w:30, h:30})
-        .place(300,300)
-            //.fire(50);
-        .proximityFire(200,50,300,300);
-        //.color(r,g,b);
 
   Crafty.e('Wall, 2D, Canvas, Color') // 2
     .attr({x: 500, y: 300, w: 25, h: 215})
@@ -102,7 +95,7 @@ function level1(){
     .color(0, 0, 0, 0.5)
     .checkHits("Player")
     .bind("HitOn", function (hitdata) {
-      confirm("You finished Level 2 with a time of "+timer.timeDisplay+"!")
+      confirm("You finished Level 2 with a time of "+timer.timeDisplay+"!");
       Crafty.enterScene("level2");
     });
 }
