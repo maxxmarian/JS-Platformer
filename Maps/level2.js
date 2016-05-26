@@ -1,9 +1,12 @@
 var superPosition = (Math.round(Math.random() * (3000 - 300 + 1) + 300));
 function level2(){
   timer();
-  playerCharacter.vx = 0;
   playerCharacter.x = 90;
   playerCharacter.y = 30;
+  playerCharacter.vx = 0;
+  playerCharacter.vy = 0;
+  playerCharacter.acceleration.x = 0;
+  playerCharacter.acceleration.y=0;
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
 
