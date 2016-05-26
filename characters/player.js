@@ -10,7 +10,7 @@ function playerCharacter() {
         .jumper(650, ['UP_ARROW', 'W'])
         .gravityConst(1100)
         .gravity('Floor')
-        .checkHits('Wall', 'Cieling')
+        .checkHits('Wall', 'Ceiling')
         .bind("Moved", function(moveData) { // level failed message
             if(moveData.axis==="y"&&moveData.oldValue<0||moveData.axis==="y"&&moveData.oldValue>=Crafty.viewport.bounds.max.y){
                 confirm("You Failed Level "+Crafty._current.slice(5));
