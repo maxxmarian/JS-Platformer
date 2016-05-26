@@ -2,17 +2,20 @@
  * Created by maxxx on 5/13/16.
  */
 function playerCharacter() {
-
-    playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Twoway, Gravity, Collision, Motion, Persist')
+    playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Jumper, Twoway, Gravity, Collision, Persist')
         .attr({x: 90, y: 30, w: 50, h: 50})
         .color('#F00')
         .twoway(600)
-        .jumpSpeed(650)
+        .jumper(650, ['UP_ARROW', 'W'])
         .gravityConst(1100)
         .gravity('Floor')
-        .checkHits('Wall', 'Cieling')
+        .checkHits('Wall', 'Ceiling')
         .bind("Moved", function(moveData) { // level failed message
             if(moveData.axis==="y"&&moveData.oldValue<0||moveData.axis==="y"&&moveData.oldValue>=Crafty.viewport.bounds.max.y){
+                confirm("You Failed Level "+Crafty._current.slice(5));
+                restart();
+            }
+            if(moveData.axis==="x"&&moveData.oldValue<0||moveData.axis==="x"&&moveData.oldValue>=Crafty.viewport.bounds.max.x){
                 confirm("You Failed Level "+Crafty._current.slice(5));
                 restart();
             }
@@ -23,7 +26,7 @@ function playerCharacter() {
         })
         .bind("HitOn", function (hitData) {
             if (playerCharacter.dx <= 0) {
-                playerCharacter.x = hitData[0].obj.x + 40;
+                playerCharacter.x = hitData[0].obj.x + 50;
             }
             else {
                 playerCharacter.x = hitData[0].obj.x - 70;
