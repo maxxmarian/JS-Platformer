@@ -8,14 +8,12 @@ var height;
 var winWidth;
 var winHeight;
 var finishLine;
-<<<<<<< HEAD
-=======
 var levelChanging=false;
 
 
 //var timer.timerEntity;
 
->>>>>>> master
+
 var elapsedSeconds=0;
 var secondsDisplay=0;
 var elapsedMinutes=0;
@@ -59,7 +57,7 @@ Crafty.scene('level0', level0);
 Crafty.scene('level1', level1);
 Crafty.scene('level2', level2);
 Crafty.scene('level3', level3);
-Crafty.enterScene("level0");
+Crafty.enterScene("level1");
 
 function restart(){
     Crafty.enterScene(Crafty._current);

@@ -1,4 +1,3 @@
-var moveBlocks = [moveBlock1];
 var moveBlock;
 
 function testMap(){
