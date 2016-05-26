@@ -8,6 +8,7 @@ var height;
 var winWidth;
 var winHeight;
 var finishLine;
+var levelChanging=false;
 
 
 //var timer.timerEntity;
@@ -88,7 +89,7 @@ Crafty.c("Tower", {
     },
     proximityFire: function(proximity, updateInterval, towerX, towerY){
         var firedUpon=true;
-        playerCharacter.bind("Moved",function (moveData) {
+        playerCharacter.bind("Moved",function towerFire (moveData) {
             if (firedUpon) {
                 if (playerCharacter._x <= towerX - proximity || playerCharacter._x >= towerX + proximity || playerCharacter._y <= towerY - proximity || playerCharacter._y >= towerY + proximity) {
                     console.log("i should be false!");
@@ -99,6 +100,11 @@ Crafty.c("Tower", {
                 outsideFire(updateInterval, towerX, towerY);
                 firedUpon=true;
             }
+            if (levelChanging){
+                playerCharacter.unbind("Moved", towerFire);
+                levelChanging=false;
+            }
+
         });
         //return this;
     }

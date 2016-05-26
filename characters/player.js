@@ -3,11 +3,11 @@
  */
 function playerCharacter() {
     
-    playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Twoway, Gravity, Collision, Persist')
+    playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Jumper, Twoway, Gravity, Collision, Persist')
         .attr({x: 90, y: 30, w: 50, h: 50})
         .color('#F00')
         .twoway(600)
-        .jumpSpeed(650)
+        .jumper(650, ['UP_ARROW', 'W'])
         .gravityConst(1100)
         .gravity('Floor')
         .checkHits('Wall', 'Cieling')
@@ -27,7 +27,7 @@ function playerCharacter() {
         })
         .bind("HitOn", function (hitData) {
             if (playerCharacter.dx <= 0) {
-                playerCharacter.x = hitData[0].obj.x + 40;
+                playerCharacter.x = hitData[0].obj.x + 50;
             }
             else {
                 playerCharacter.x = hitData[0].obj.x - 70;
