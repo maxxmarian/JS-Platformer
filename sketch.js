@@ -27,15 +27,15 @@ function setup(){
   colorTrip();
 
 }
-function draw(){
-  if(moveBlock[i].x > 700){
-    moveLeft();
-  }
-
-  if(moveBlock[i].x < 300){
-    moveRight();
-  }
-}
+// function draw(){
+//   if(moveBlock[i].x > 700){
+//     moveLeft();
+//   }
+//
+//   if(moveBlock[i].x < 300){
+//     moveRight();
+//   }
+// }
 
 function colorTrip(){
   r = Math.round(Math.random() * (255 - 0 + 1) + 0);

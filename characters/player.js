@@ -2,7 +2,7 @@
  * Created by maxxx on 5/13/16.
  */
 function playerCharacter() {
-    playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Jumper, Twoway, Gravity, Collision, Persist')
+    playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Twoway, Gravity, Collision, Persist')
         .attr({x: 90, y: 30, w: 50, h: 50})
         .color('#F00')
         .twoway(600)
@@ -27,9 +27,24 @@ function playerCharacter() {
         .bind("HitOn", function (hitData) {
             if (playerCharacter.dx <= 0) {
                 playerCharacter.x = hitData[0].obj.x + 50;
+                playerCharacter.vx = 0;
+                playerCharacter.resetMotion();
+
+            } else {
+                //playerCharacter.x = hitData[0].obj.x -50;
+                playerCharacter.vx = 0;
+                playerCharacter.resetMotion();
+
             }
-            else {
-                playerCharacter.x = hitData[0].obj.x - 70;
-            }
+
         });
+        // .bind("HitOn", function (hitData) {
+        //     if (playerCharacter.dy <= 0) {
+        //         //playerCharacter.y = hitData[0].obj.y + 50;
+        //         playerCharacter.vy = 0;
+        //     }
+        //     else {
+        //         playerCharacter.y = hitData[0].obj.y - 50;
+        //     }
+        // });
 }

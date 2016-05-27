@@ -5,6 +5,8 @@ function level3(){
   playerCharacter.y = 35;
   playerCharacter.vx = 0;
   playerCharacter.vy = 0;
+  playerCharacter.ax = 0;
+  //playerCharacter.ay = 0;
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
 
@@ -12,7 +14,7 @@ function level3(){
     .attr({x: 0, y: 400, w: 2600, h: 25})
     .color(r, g, b);
 
-  Crafty.e('Floor, 2D, Canvas, Color') // 2
+  Crafty.e('Wall, 2D, Canvas, Color') // 2
     .attr({x: 0, y: 0, w: 25, h: 400})
     .color(r, g, b);
 }
