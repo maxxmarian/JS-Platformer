@@ -28,11 +28,11 @@ function setup(){
 
 }
 // function draw(){
-//   if(moveBlock[i].x > 700){
+//   if(moveBlocks[i].x > 700){
 //     moveLeft();
 //   }
 //
-//   if(moveBlock[i].x < 300){
+//   if(moveBlocks[i].x < 300){
 //     moveRight();
 //   }
 // }
@@ -57,7 +57,8 @@ Crafty.scene('level0', level0);
 Crafty.scene('level1', level1);
 Crafty.scene('level2', level2);
 Crafty.scene('level3', level3);
-Crafty.enterScene("level1");
+Crafty.scene('level4', level3);
+Crafty.enterScene("level0");
 
 function restart(){
     Crafty.enterScene(Crafty._current);

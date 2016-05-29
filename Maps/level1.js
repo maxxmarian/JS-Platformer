@@ -43,11 +43,11 @@ function level1(){
     .color(r, g, b);
 
   Crafty.e('Wall, 2D, Canvas, Color') // 10
-    .attr({x: 1000, y: 1125, w: 25, h: 1325})
+    .attr({x: 1000, y: 1125, w: 25, h: 180})
     .color(r, g, b);
 
   Crafty.e('Floor, 2D, Canvas, Color') // 11
-    .attr({x: 350, y: 2425, w: 650, h: 25})
+    .attr({x: 350, y: 1280, w: 650, h: 25})
     .color(r, g, b);
 
   Crafty.e('Wall, 2D, Canvas, Color') // 12

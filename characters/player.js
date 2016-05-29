@@ -8,8 +8,8 @@ function playerCharacter() {
         .twoway(600)
         .jumper(650, ['UP_ARROW', 'W'])
         .gravityConst(1100)
-        .gravity('Floor')
-        .checkHits('Wall', 'Ceiling')
+        .gravity('Floor', 'Ceiling')
+        .checkHits('Wall')
         .bind("Moved", function(moveData) { // level failed message
             if(moveData.axis==="y"&&moveData.oldValue<0||moveData.axis==="y"&&moveData.oldValue>=Crafty.viewport.bounds.max.y){
                 confirm("You Failed Level "+Crafty._current.slice(5));
@@ -26,25 +26,16 @@ function playerCharacter() {
         })
         .bind("HitOn", function (hitData) {
             if (playerCharacter.dx <= 0) {
-                playerCharacter.x = hitData[0].obj.x + 50;
-                playerCharacter.vx = 0;
-                playerCharacter.resetMotion();
-
+              playerCharacter.x = hitData[0].obj.x + 40;
             } else {
-                //playerCharacter.x = hitData[0].obj.x -50;
-                playerCharacter.vx = 0;
-                playerCharacter.resetMotion();
-
+              playerCharacter.x = hitData[0].obj.x - 70;
             }
-
+            // if (playerCharacter.dy >= 0) {
+            //   playerCharacter.y = hitData[0].obj.y + 50;
+            //   //playerCharacter.vy = 0;
+            // } else {
+            //   playerCharacter.y = hitData[0].obj.y - 50;
+            // }
         });
-        // .bind("HitOn", function (hitData) {
-        //     if (playerCharacter.dy <= 0) {
-        //         //playerCharacter.y = hitData[0].obj.y + 50;
-        //         playerCharacter.vy = 0;
-        //     }
-        //     else {
-        //         playerCharacter.y = hitData[0].obj.y - 50;
-        //     }
-        // });
+
 }

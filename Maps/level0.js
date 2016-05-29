@@ -113,9 +113,9 @@ function level0() {
     .attr({x: 2670, y: 2130, w: 110, h: 100})
     .color(0, 0, 0);
 
-  // Crafty.e('Floor, 2D, Canvas, Color') // dogerBox6
-  //   .attr({x: 2810, y: 2500, w: 110, h: 100})
-  //   .color(0, 0, 0);
+  Crafty.e('Tower')
+    .place(300, 300)
+    .proximityFire(100, 50, 300, 300);
 
 
   Crafty.e('finishLine, 2D, Canvas, Color, Collision') // finish line 1
