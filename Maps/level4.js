@@ -19,18 +19,18 @@ function level4(){
     .color(r, g, b);
 }
 
-function moveRight(){
-  moveBlock.vx = platformSpeed;
-}
-
-function moveLeft(){
-  moveBlock.vx = -platformSpeed;
-}
-
-function moveUp(){
-  moveBlock.vy = -platformSpeed;
-}
-
-function moveDown(){
-  moveBlock.vy = platformSpeed;
-}
+// function moveRight(){
+//   moveBlock.vx = platformSpeed;
+// }
+//
+// function moveLeft(){
+//   moveBlock.vx = -platformSpeed;
+// }
+//
+// function moveUp(){
+//   moveBlock.vy = -platformSpeed;
+// }
+//
+// function moveDown(){
+//   moveBlock.vy = platformSpeed;
+// }

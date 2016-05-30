@@ -1,5 +1,5 @@
-var moveBlock;
-
+var moveBlock1;
+var movedRight = false;
 function testMap(){
   playerCharacter.x = 50;
   playerCharacter.y = 400;
@@ -12,16 +12,51 @@ function testMap(){
     .attr({x: 0, y: 500, w: 2600, h: 25})
     .color(r, g, b);
 
-  moveBlock1 = Crafty.e('Floor, 2D, Canvas, Color, Motion') // x
-      .attr({x: 301, y: 400, w: 50, h: 50})
+  Crafty.e('Wall, 2D, Canvas, Color') // 2
+    .attr({x: 0, y: 0, w: 25, h: 500})
+    .color(r, g, b);
+
+  moveBlock1 = Crafty.e('Floor, 2D, Canvas, Color, Motion, Collision') // x
+      .attr({x: 300, y: 400, w: 200, h: 25})
       .color(r, g, b);
-  moveRight();
+      //.onHit('playerCharacter', rePosition);
+
+      // .bind("HitOn", function (hitData) {
+      //   playerCharacter.x = moveBlock1.x;
+      //   // if(playerCharacter.dy >= 0){
+      //   //   console.log("kek");
+      //   // }
+      // });
+
 }
 
-function moveRight(){
-  moveBlock[i].vx = 400;
-}
+// function rePosition(){
+//   playerCharacter.x = moveBlock1.x;
+// }
 
-function moveLeft(){
-  moveBlock[i].vx = -400;
-}
+// setInterval(function () {
+//   // moveBlock1.x = moveBlock1.x + 1;
+//   if(movedRight === false){
+//     if(moveBlock1.x < 700){
+//       moveBlock1.x = moveBlock1.x + 1;
+//       if(moveBlock1.x >= 700){
+//         movedRight = true;
+//       }
+//     }
+//   } else {
+//     if(moveBlock1.x > 299){
+//       moveBlock1.x = moveBlock1.x - 1;
+//       if(moveBlock1.x <= 299){
+//         movedRight = false;
+//       }
+//     }
+//   }
+// }, 1);
+
+// function moveRight(){
+//   moveBlock[i].vx = 400;
+// }
+//
+// function moveLeft(){
+//   moveBlock[i].vx = -400;
+// }

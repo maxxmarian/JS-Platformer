@@ -26,9 +26,10 @@ function level1(){
     .attr({x: 2580, y: 500, w: 25, h: 425})
     .color(r, g, b);
 
-  Crafty.e('Ceiling, 2D, Canvas, Color') // 6
+  Crafty.e('Ceiling, 2D, Canvas, Color, Collision') // 6
     .attr({x: 1000, y: 900, w: 1580, h: 25})
     .color(r, g, b);
+    //.onHit('playerCharacter', ceilingStop);
 
   Crafty.e('Floor, 2D, Canvas, Color') // 7
     .attr({x: 1000, y: 1100, w: 1605, h: 25})

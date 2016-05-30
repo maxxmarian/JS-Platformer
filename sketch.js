@@ -51,14 +51,14 @@ Crafty.init(winWidth, winHeight, document.getElementById('game')); // setup
 Crafty.background(170);
 
 
-playerCharacter();
+player();
 Crafty.scene('testMap', testMap);
 Crafty.scene('level0', level0);
 Crafty.scene('level1', level1);
 Crafty.scene('level2', level2);
 Crafty.scene('level3', level3);
 Crafty.scene('level4', level3);
-Crafty.enterScene("level0");
+Crafty.enterScene("testMap");
 
 function restart(){
     Crafty.enterScene(Crafty._current);
@@ -138,7 +138,7 @@ function outsideFire(updateInterval,towerX,towerY){
     var currentBullet = Crafty.e('Bullet, 2D, Canvas, Color, Collision')
         .attr({x: towerX, y: towerY, w: 10, h: 10})
         .color(0,0,0)
-        .checkHits('Player', 'Wall')
+        .checkHits('playerCharacter', 'Wall')
         .bind("HitOn", function (hitData) {
             var hitObject = hitData[0].obj.__c;
             if (hitObject.Player) {
