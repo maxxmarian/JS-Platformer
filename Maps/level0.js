@@ -4,8 +4,8 @@
 function level0() {
   playerCharacter.x = 110;
   playerCharacter.y = 35;
-  playerCharacter.vx = 0;
-  playerCharacter.vy = 0;
+  playerCharacter.resetMotion();
+  playerCharacter.gravity('Floor')
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}};
 
@@ -112,7 +112,7 @@ function level0() {
   Crafty.e('Floor, 2D, Canvas, Color') // dogerBox5
     .attr({x: 2670, y: 2130, w: 110, h: 100})
     .color(0, 0, 0);
-
+  createTowers();
   Crafty.e('Tower')
     .place(300, 300)
     .proximityFire(100, 50, 300, 300);

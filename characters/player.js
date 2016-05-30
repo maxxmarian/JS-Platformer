@@ -34,6 +34,7 @@ function player() {
             playerCharacter.x = hitData[0].obj.x - 70;
           }
         });
+
     // function ceilingStop(){
     //     if (playerCharacter.dy <= 0) {
     //         playerCharacter.y = playerCharacter.y + 9;

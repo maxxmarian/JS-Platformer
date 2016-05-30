@@ -60,7 +60,7 @@ Crafty.scene('level1', level1);
 Crafty.scene('level2', level2);
 Crafty.scene('level3', level3);
 Crafty.scene('level4', level3);
-Crafty.enterScene("level3");
+Crafty.enterScene("level0");
 
 function restart(){
     Crafty.enterScene(Crafty._current);
@@ -73,7 +73,7 @@ function restart(){
       timer.timerEntity = Crafty.e("2D, DOM, Text").attr({ x: Math.abs(Crafty.viewport._x)+ 50, y: Math.abs(Crafty.viewport._y) + 50}).text('Elapsed Time:'+ timeDisplayCheck());
     }
 }
-
+function createTowers(){
 Crafty.c("Tower", {
 
     init: function () {
@@ -141,18 +141,18 @@ function outsideFire(updateInterval,towerX,towerY){
         .attr({x: towerX, y: towerY, w: 10, h: 10})
         .color(0,0,0)
         .checkHits('playerCharacter', 'Wall')
-        .bind("HitOn", function (hitData) {
-            var hitObject = hitData[0].obj.__c;
-            if (hitObject.Player) {
-                confirm("You Failed Level " + Crafty._current.slice(5));
-                restart();
-            }
-            if(hitObject.Wall||hitObject.Floor){
-                currentBullet.destroy();
-            }
-        });
+        .onHit("Player",function () {
+            confirm("You Failed Level " + Crafty._current.slice(5));
+            restart();
+        })
+        .onHit("Wall", function () {
+            currentBullet.destroy();
+        })
+        .onHit("Floor", function () {
+            currentBullet.destroy();
+        })
     setInterval(function () {
         currentBullet.x = bulletTrackX(currentBullet);
         currentBullet.y = bulletTrackY(currentBullet);
     }, updateInterval);
-}
+}}
