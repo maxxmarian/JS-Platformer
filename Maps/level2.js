@@ -1,12 +1,9 @@
-var superPosition = (Math.round(Math.random() * (3000 - 300 + 1) + 300));
+var superPositionX = (Math.round(Math.random() * (2500 - 0 + 1) + 0));
+var superPositionY = (Math.round(Math.random() * (2500 - 400 + 1) + 400));
 function level2(){
-  timer();
-  playerCharacter.x = 90;
-  playerCharacter.y = 30;
-  playerCharacter.vx = 0;
-  playerCharacter.vy = 0;
-  playerCharacter.acceleration.x = 0;
-  playerCharacter.acceleration.y=0;
+  playerCharacter.x = 110;
+  playerCharacter.y = 35;
+  playerCharacter.reInit();
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
 
@@ -30,6 +27,8 @@ function level2(){
   for(i = 0; i < 60; i++){
     randomPlatform();
   }
+
+  quantumFinish();
 }
 
 
@@ -40,7 +39,21 @@ function randomPlatform(){
 }
 
 function quantumFinish(){
-  Crafty.e(', 2D, Canvas, Color') // a
-    .attr({x: 3000, y: 0, w: 25, h: 3000})
+  Crafty.e('Floor, 2D, Canvas, Color') // a
+    .attr({x: superPositionX, y: superPositionY, w: 500, h: 25})
     .color(r, g, b);
+
+  Crafty.e('Floor, 2D, Canvas, Color') // b
+    .attr({x: superPositionX, y: superPositionY + 400, w: 500, h: 25})
+    .color(r, g, b);
+
+  Crafty.e('finishLine, 2D, Canvas, Color, Collision') // finish line 3
+    .attr({x: superPositionX + 247, y: superPositionY + 25, w: 6, h: 375})
+    .color(0, 0, 0, 0.5)
+    .checkHits("Player")
+    .bind("HitOn", function (hitdata) {
+      console.log("collide!");
+      confirm("You finished Level x with a time of "+timer.timeDisplay+"!");
+      Crafty.enterScene("level3");
+    });
 }

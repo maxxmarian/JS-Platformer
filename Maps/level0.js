@@ -3,13 +3,13 @@
  */
 function level0() {
   timer();
-  playerCharacter.vx = 0;
-  playerCharacter.x = 90;
-  playerCharacter.y = 20;
+  playerCharacter.x = 110;
+  playerCharacter.y = 35;
+  playerCharacter.reInit();
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}};
 
-  Crafty.e('Floor, 2D, Canvas, Color') //1
+  Crafty.e('Floor, 2D, Canvas, Color') // 1
     .attr({x: 0, y: 500, w: 2600, h: 25})
     .color(r, g, b);
 
@@ -112,10 +112,10 @@ function level0() {
   Crafty.e('Floor, 2D, Canvas, Color') // dogerBox5
     .attr({x: 2670, y: 2130, w: 110, h: 100})
     .color(0, 0, 0);
-
-  // Crafty.e('Floor, 2D, Canvas, Color') // dogerBox6
-  //   .attr({x: 2810, y: 2500, w: 110, h: 100})
-  //   .color(0, 0, 0);
+  createTowers();
+  Crafty.e('Tower')
+    .place(300, 300)
+    .proximityFire(100, 50, 300, 300);
 
 
   Crafty.e('finishLine, 2D, Canvas, Color, Collision') // finish line 1
@@ -124,6 +124,7 @@ function level0() {
     .checkHits("Player")
     .bind("HitOn", function (hitdata) {
         console.log("collide!");
+        Crafty.trigger("levelChange");
         confirm("You finished Level 0 with a time of "+timer.timeDisplay+"!");
         Crafty.enterScene("level1");
     });

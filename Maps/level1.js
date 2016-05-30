@@ -1,10 +1,7 @@
 function level1(){
   playerCharacter.x = 100;
   playerCharacter.y = 20;
-  playerCharacter.vx = 0;
-  playerCharacter.vy = 0;
-  playerCharacter.acceleration.x = 0;
-  playerCharacter.acceleration.y=0;
+  playerCharacter.reInit();
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
 
@@ -32,7 +29,7 @@ function level1(){
     .attr({x: 2580, y: 500, w: 25, h: 425})
     .color(r, g, b);
 
-  Crafty.e('Cieling, 2D, Canvas, Color') // 6
+  Crafty.e('Ceiling, 2D, Canvas, Color, Collision') // 6
     .attr({x: 1000, y: 900, w: 1580, h: 25})
     .color(r, g, b);
 
@@ -49,11 +46,11 @@ function level1(){
     .color(r, g, b);
 
   Crafty.e('Wall, 2D, Canvas, Color') // 10
-    .attr({x: 1000, y: 1125, w: 25, h: 1325})
+    .attr({x: 1000, y: 1125, w: 25, h: 180})
     .color(r, g, b);
 
   Crafty.e('Floor, 2D, Canvas, Color') // 11
-    .attr({x: 350, y: 2425, w: 650, h: 25})
+    .attr({x: 350, y: 1280, w: 650, h: 25})
     .color(r, g, b);
 
   Crafty.e('Wall, 2D, Canvas, Color') // 12
@@ -72,7 +69,7 @@ function level1(){
     .attr({x: 350, y: 2975, w: 1800, h: 25})
     .color(r, g, b);
 
-  Crafty.e('Cieling, 2D, Canvas, Color') // 16
+  Crafty.e('Ceiling, 2D, Canvas, Color') // 16
     .attr({x: 350, y: 2810, w: 1800, h: 25})
     .color(r, g, b);
 
@@ -88,7 +85,7 @@ function level1(){
     .attr({x: 2125, y: 2250, w: 25, h: 585})
     .color(r, g, b);
 
-  Crafty.e('Cieling, 2D, Canvas, Color') // 20
+  Crafty.e('Ceiling, 2D, Canvas, Color') // 20
     .attr({x: 2125, y: 2250, w: 875, h: 25})
     .color(r, g, b);
 
@@ -101,7 +98,7 @@ function level1(){
     .color(0, 0, 0, 0.5)
     .checkHits("Player")
     .bind("HitOn", function (hitdata) {
-      levelChanging=true;
+      Crafty.trigger("levelChange");
       confirm("You finished Level 2 with a time of "+timer.timeDisplay+"!");
       Crafty.enterScene("level2");
     });
