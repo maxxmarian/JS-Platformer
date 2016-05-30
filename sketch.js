@@ -58,7 +58,7 @@ Crafty.scene('level1', level1);
 Crafty.scene('level2', level2);
 Crafty.scene('level3', level3);
 Crafty.scene('level4', level3);
-Crafty.enterScene("testMap");
+Crafty.enterScene("level3");
 
 function restart(){
     Crafty.enterScene(Crafty._current);

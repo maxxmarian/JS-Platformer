@@ -1,10 +1,14 @@
 var superPositionX = (Math.round(Math.random() * (2500 - 0 + 1) + 0));
 var superPositionY = (Math.round(Math.random() * (2500 - 400 + 1) + 400));
 function level2(){
+  playerCharacter.resetMotion();
   playerCharacter.x = 110;
   playerCharacter.y = 35;
   playerCharacter.vx = 0;
   playerCharacter.vy = 0;
+  playerCharacter.ax = 0;
+  playerCharacter.ay = 0;
+  playerCharacter.resetMotion();
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
 

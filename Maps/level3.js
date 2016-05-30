@@ -1,9 +1,12 @@
+var movedUp = false;
 function level3(){
   playerCharacter.x = 2200;
   playerCharacter.y = 2350;
   playerCharacter.vx = 0;
   playerCharacter.vy = 0;
   playerCharacter.ax = 0;
+  playerCharacter.ay = 0;
+  playerCharacter.resetMotion();
   //playerCharacter.ay = 0;
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
@@ -153,7 +156,25 @@ function level3(){
     .attr({x: 2220, y: 2250, w: 150, h: 25})
     .color(r, g, b);
 
-  Crafty.e('Floor, 2D, Canvas, Color') // 37
-    .attr({x: 2220, y: 2250, w: 150, h: 25})
+  elevator = Crafty.e('Floor, 2D, Canvas, Color') // elevator
+    .attr({x: 980, y: 2000, w: 200, h: 25})
     .color(r, g, b);
 }
+
+setInterval(function () {
+  if(movedUp === false){
+    if(elevator.y > 300){
+      elevator.y = elevator.y - 1;
+      if(elevator.y <= 300){
+        movedUp = true;
+      }
+    }
+  } else {
+    if(elevator.y > 299){
+      elevator.y = elevator.y + 1;
+      if(elevator.y > 1999){
+        movedUp = false;
+      }
+    }
+  }
+}, 5);

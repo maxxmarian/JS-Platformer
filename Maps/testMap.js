@@ -30,9 +30,6 @@ function testMap(){
 
 }
 
-// function rePosition(){
-//   playerCharacter.x = moveBlock1.x;
-// }
 
 // setInterval(function () {
 //   // moveBlock1.x = moveBlock1.x + 1;
@@ -52,11 +49,3 @@ function testMap(){
 //     }
 //   }
 // }, 1);
-
-// function moveRight(){
-//   moveBlock[i].vx = 400;
-// }
-//
-// function moveLeft(){
-//   moveBlock[i].vx = -400;
-// }
