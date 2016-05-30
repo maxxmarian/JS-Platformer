@@ -9,6 +9,8 @@ var winWidth;
 var winHeight;
 var finishLine;
 var levelChanging=false;
+var playerCharacter;
+//var playerCharacter;
 
 
 //var timer.timerEntity;

@@ -1,4 +1,6 @@
 var movedUp = false;
+var elevator;
+var elevatorMove;
 function level3(){
   playerCharacter.x = 2200;
   playerCharacter.y = 2350;
@@ -156,25 +158,29 @@ function level3(){
     .attr({x: 2220, y: 2250, w: 150, h: 25})
     .color(r, g, b);
 
-  elevator = Crafty.e('Floor, 2D, Canvas, Color') // elevator
+  elevator = Crafty.e('Floor, 2D, Canvas, Color, Collision') // elevator
     .attr({x: 980, y: 2000, w: 200, h: 25})
     .color(r, g, b);
+
+  setInterval(function () {
+    if(movedUp === false){
+      if(elevator.y > 300){
+        elevator.y = elevator.y - 1;
+        // playerCharacter.velocity().y=elevator.vy;
+        if(elevator.y <= 300){
+          movedUp = true;
+
+        }
+      }
+    } else {
+      if(elevator.y > 299){
+        elevator.y = elevator.y + 1;
+        if(elevator.y > 1999){
+          movedUp = false;
+        }
+      }
+    }
+  }, 10);
+
 }
 
-setInterval(function () {
-  if(movedUp === false){
-    if(elevator.y > 300){
-      elevator.y = elevator.y - 1;
-      if(elevator.y <= 300){
-        movedUp = true;
-      }
-    }
-  } else {
-    if(elevator.y > 299){
-      elevator.y = elevator.y + 1;
-      if(elevator.y > 1999){
-        movedUp = false;
-      }
-    }
-  }
-}, 5);

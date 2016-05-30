@@ -1,8 +1,9 @@
 /**
  * Created by maxxx on 5/13/16.
  */
+
 function player() {
-    playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Twoway, Gravity, Collision, Persist')
+    playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Twoway, Gravity, Collision, Persist, GroundAttacher')
         .attr({x: 90, y: 30, w: 50, h: 50})
         .color('#F00')
         .twoway(600)
@@ -10,8 +11,8 @@ function player() {
         .gravityConst(1100)
         .gravity('Floor')
         .checkHits('Wall')
-        .onHit('MoveBlock', rePosition)
-        .onHit('Ceiling', ceilingStop)
+        //.onHit('MoveBlock', rePosition())
+        //.onHit('Ceiling', ceilingStop())
         .bind("Moved", function(moveData) { // level failed message
             if(moveData.axis==="y"&&moveData.oldValue<0||moveData.axis==="y"&&moveData.oldValue>=Crafty.viewport.bounds.max.y){
                 confirm("You Failed Level "+Crafty._current.slice(5));
@@ -33,20 +34,19 @@ function player() {
             playerCharacter.x = hitData[0].obj.x - 70;
           }
         });
-
+    // function ceilingStop(){
+    //     if (playerCharacter.dy <= 0) {
+    //         playerCharacter.y = playerCharacter.y + 9;
+    //     } else {
+    //         playerCharacter.y = playerCharacter.y - 15;
+    //     }
+    // }
 }
 
-function ceilingStop(){
 
-  if (playerCharacter.dy <= 0) {
-    playerCharacter.y = playerCharacter.y + 9;
-  } else {
-    playerCharacter.y = playerCharacter.y - 15;
-  }
-}
 
-function rePosition(){
-
-  playerCharacter.vx = moveBlock1.vx;
-  playerCharacter.y = moveBlock1.y - 50;
-}
+// function rePosition(){
+//
+//   playerCharacter.vx = moveBlock1.vx;
+//   playerCharacter.y = moveBlock1.y - 50;
+// }
