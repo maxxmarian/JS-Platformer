@@ -3,10 +3,8 @@ platformSpeed = (Math.round(Math.random() * (500 - 50 + 1) + 50));
 function level4(){
   playerCharacter.x = 110;
   playerCharacter.y = 35;
-  playerCharacter.vx = 0;
-  playerCharacter.vy = 0;
-  playerCharacter.ax = 0;
-  //playerCharacter.ay = 0;
+  playerCharacter.reInit();
+  playerCharacter.removeComponent('GroundAttacher')
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
 

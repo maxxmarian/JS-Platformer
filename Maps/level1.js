@@ -1,12 +1,7 @@
 function level1(){
-  playerCharacter.resetMotion();
   playerCharacter.x = 1300;
   playerCharacter.y = 1050;
-  playerCharacter.vx = 0;
-  playerCharacter.vy = 0;
-  playerCharacter.ax = 0;
-  playerCharacter.ay = 0;
-  playerCharacter.resetMotion();
+  playerCharacter.reInit();
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
 
@@ -94,19 +89,17 @@ function level1(){
     .attr({x: 2975, y: 2250, w: 25, h: 575})
     .color(r, g, b);
 
-  // Crafty.e('Tower')
-  //   .place(300, 300)
-  //   .proximityFire(100, 50, 300, 300);
+  Crafty.e('Tower')
+   .place(300, 300)
+  .proximityFire(100, 50, 300, 300);
 
   Crafty.e('finishLine, 2D, Canvas, Color, Collision') // finish line
     .attr({x: 2850, y: 2275, w: 6, h: 525})
     .color(0, 0, 0, 0.5)
     .checkHits("Player")
     .bind("HitOn", function (hitdata) {
-      levelChanging=true;
-      playerCharacter.resetMotion();
+      Crafty.trigger("levelChange");
       confirm("You finished Level 2 with a time of "+timer.timeDisplay+"!");
-      playerCharacter.resetMotion();
       Crafty.enterScene("level2");
     });
 }

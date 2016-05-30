@@ -3,7 +3,7 @@
  */
 
 function player() {
-    playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Twoway, Gravity, Collision, Persist, GroundAttacher')
+    playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Twoway, Gravity, Collision, Persist')
         .attr({x: 90, y: 30, w: 50, h: 50})
         .color('#F00')
         .twoway(600)
@@ -34,6 +34,16 @@ function player() {
             playerCharacter.x = hitData[0].obj.x - 70;
           }
         });
+    playerCharacter.reInit=function(){
+        playerCharacter.removeComponent("Twoway");
+        playerCharacter.addComponent("Twoway");
+        playerCharacter.resetMotion();
+        playerCharacter.twoway(600);
+        playerCharacter.jumper(650, ['UP_ARROW', 'W']);
+        playerCharacter.gravityConst(1100);
+        playerCharacter.gravity('Floor');
+
+    };
 
     // function ceilingStop(){
     //     if (playerCharacter.dy <= 0) {
@@ -42,6 +52,7 @@ function player() {
     //         playerCharacter.y = playerCharacter.y - 15;
     //     }
     // }
+    
 }
 
 

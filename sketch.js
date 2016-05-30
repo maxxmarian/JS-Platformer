@@ -10,6 +10,7 @@ var winHeight;
 var finishLine;
 var levelChanging=false;
 var playerCharacter;
+var fireInt;
 //var playerCharacter;
 
 
@@ -110,11 +111,10 @@ Crafty.c("Tower", {
                 outsideFire(updateInterval, towerX, towerY);
                 firedUpon=true;
             }
-            if (levelChanging){
+            Crafty.bind("levelChange", function(){
                 playerCharacter.unbind("Moved", towerFire);
-                levelChanging=false;
-            }
-
+                clearInterval(fireInt);
+            });
         });
         //return this;
     }
@@ -140,9 +140,9 @@ function outsideFire(updateInterval,towerX,towerY){
     var currentBullet = Crafty.e('Bullet, 2D, Canvas, Color, Collision')
         .attr({x: towerX, y: towerY, w: 10, h: 10})
         .color(0,0,0)
-        .checkHits('playerCharacter', 'Wall')
         .onHit("Player",function () {
             confirm("You Failed Level " + Crafty._current.slice(5));
+            currentBullet.destroy();
             restart();
         })
         .onHit("Wall", function () {
@@ -151,7 +151,7 @@ function outsideFire(updateInterval,towerX,towerY){
         .onHit("Floor", function () {
             currentBullet.destroy();
         })
-    setInterval(function () {
+    fireInt = setInterval(function () {
         currentBullet.x = bulletTrackX(currentBullet);
         currentBullet.y = bulletTrackY(currentBullet);
     }, updateInterval);
