@@ -1,12 +1,7 @@
 function level1(){
-  playerCharacter.resetMotion();
   playerCharacter.x = 1300;
   playerCharacter.y = 1050;
-  playerCharacter.vx = 0;
-  playerCharacter.vy = 0;
-  playerCharacter.ax = 0;
-  playerCharacter.ay = 0;
-  playerCharacter.resetMotion();
+  playerCharacter.reInit();
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
 

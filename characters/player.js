@@ -1,6 +1,7 @@
 /**
  * Created by maxxx on 5/13/16.
  */
+var rePositionRate;
 function player() {
     playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Twoway, Gravity, Collision, Persist')
         .attr({x: 90, y: 30, w: 50, h: 50})
@@ -10,7 +11,9 @@ function player() {
         .gravityConst(1100)
         .gravity('Floor')
         .checkHits('Wall')
-        .onHit('MoveBlock', rePosition)
+        .onHit('Elevator', rePosition1)
+        .onHit('MoveBlock', rePosition2)
+
         .onHit('Ceiling', ceilingStop)
         .bind("Moved", function(moveData) { // level failed message
             if(moveData.axis==="y"&&moveData.oldValue<0||moveData.axis==="y"&&moveData.oldValue>=Crafty.viewport.bounds.max.y){
@@ -41,12 +44,25 @@ function ceilingStop(){
   if (playerCharacter.dy <= 0) {
     playerCharacter.y = playerCharacter.y + 9;
   } else {
-    playerCharacter.y = playerCharacter.y - 15;
+    playerCharacter.y = playerCharacter.y - 30;
   }
 }
 
-function rePosition(){
+function rePosition1(){
 
-  playerCharacter.vx = moveBlock1.vx;
-  playerCharacter.y = moveBlock1.y - 50;
+  rePositionRate = setInterval(function () {
+    playerCharacter.y = elevator.y - 51;
+    clearInterval(rePositionRate);
+  }, 1);
+}
+
+function rePosition2(){
+
+  if (playerCharacter.dy <= 0) {
+    playerCharacter.y = playerCharacter.y + 9;
+  } else {
+    playerCharacter.y = playerCharacter.y - 30;
+  }
+  // playerCharacter.vx = moveBlock1.vx;
+  //playerCharacter.y = elevator.y - 50;
 }
