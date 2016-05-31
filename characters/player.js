@@ -16,28 +16,31 @@ function player() {
         .onHit('MoveBlock', rePosition3)
 
         .onHit('Ceiling', ceilingStop)
-        .bind("Moved", function(moveData) { // level failed message
-            if(moveData.axis==="y"&&moveData.oldValue<0||moveData.axis==="y"&&moveData.oldValue>=Crafty.viewport.bounds.max.y){
-                confirm("You Failed Level "+Crafty._current.slice(5));
+        .bind("Moved", function (moveData) { // level failed message
+            if (moveData.axis === "y" && moveData.oldValue < 0 || moveData.axis === "y" && moveData.oldValue >= Crafty.viewport.bounds.max.y) {
+                confirm("You Failed Level " + Crafty._current.slice(5));
                 restart();
             }
-            if(moveData.axis==="x"&&moveData.oldValue<0||moveData.axis==="x"&&moveData.oldValue>=Crafty.viewport.bounds.max.x){
-                confirm("You Failed Level "+Crafty._current.slice(5));
+            if (moveData.axis === "x" && moveData.oldValue < 0 || moveData.axis === "x" && moveData.oldValue >= Crafty.viewport.bounds.max.x) {
+                confirm("You Failed Level " + Crafty._current.slice(5));
                 restart();
             }
-            if (timer.timerEntity!==undefined){
+            if (timer.timerEntity !== undefined) {
                 timer.timerEntity.destroy()
             }
-            timer.timerEntity = Crafty.e("2D, DOM, Text").attr({ x: Math.abs(Crafty.viewport._x)+ 50, y: Math.abs(Crafty.viewport._y) + 50}).text('Elapsed Time:'+ timeDisplayCheck());
+            timer.timerEntity = Crafty.e("2D, DOM, Text").attr({
+                x: Math.abs(Crafty.viewport._x) + 50,
+                y: Math.abs(Crafty.viewport._y) + 50
+            }).text('Elapsed Time:' + timeDisplayCheck());
         })
         .bind("HitOn", function (hitData) {
-          if (playerCharacter.dx <= 0) {
-            playerCharacter.x = hitData[0].obj.x + 40;
-          } else {
-            playerCharacter.x = hitData[0].obj.x - 70;
-          }
+            if (playerCharacter.dx <= 0) {
+                playerCharacter.x = hitData[0].obj.x + 40;
+            } else {
+                playerCharacter.x = hitData[0].obj.x - 70;
+            }
         });
-    playerCharacter.reInit=function(){
+    playerCharacter.reInit = function () {
         playerCharacter.removeComponent("Twoway");
         playerCharacter.addComponent("Twoway");
         playerCharacter.resetMotion();
@@ -47,7 +50,7 @@ function player() {
         playerCharacter.gravity('Floor');
 
     }
-
+}
 function ceilingStop(){
 
   if (playerCharacter.dy <= 0) {
