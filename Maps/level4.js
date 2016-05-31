@@ -1,3 +1,4 @@
+var elevator2;
 function level4(){
   var moveBlock1;
   var moveBlock2;
@@ -30,8 +31,8 @@ function level4(){
   var movedLeft4 = false;
   var movedLeft5 = false;
 
-  playerCharacter.x = 2120;
-  playerCharacter.y = 2950;
+  playerCharacter.x = 2100;
+  playerCharacter.y = 1050;
   //playerCharacter.reInit();
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
@@ -137,8 +138,8 @@ function level4(){
     .attr({x: 2875, y: 2200, w: 100, h: 100})
     .color(0, 0, 0);
 
-  moveBlock11 = Crafty.e('Floor, 2D, Canvas, Color, Elevator, Collision') // moveBlock11
-      .attr({x: 980, y: 2075, w: 200, h: 25})
+  elevator2 = Crafty.e('Floor, 2D, Canvas, Color, Elevator2, Collision') // elevator2
+      .attr({x: 2000, y: 2000, w: 200, h: 25})
       .color(r, g, b);
 
 
@@ -330,16 +331,16 @@ function level4(){
 
 setInterval(function () {
   if(movedUp6 === false){
-    if(moveBlock11.y > 25){
-      moveBlock11.y = moveBlock11.y - 5;
-      if(moveBlock11.y <= 25){
+    if(elevator2.y > 800){
+      elevator2.y = elevator2.y - 5;
+      if(elevator2.y <= 800){
         movedUp6 = true;
       }
     }
   } else {
-    if(moveBlock11.y > 24){
-      moveBlock11.y = moveBlock11.y + 5;
-      if(moveBlock11.y > 300){
+    if(elevator2.y > 1999){
+      elevator2.y = elevator2.y + 5;
+      if(elevator2.y > 2000){
         movedUp6 = false;
       }
     }

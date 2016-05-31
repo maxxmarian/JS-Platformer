@@ -1,4 +1,4 @@
-var elevator;
+var elevator1;
 var movedUp = false;
 
 function level3(){
@@ -168,7 +168,7 @@ function level3(){
     .color(r, g, b);
 
 
-  elevator = Crafty.e('Floor, 2D, Canvas, Color, Elevator, Collision') // elevator
+  elevator1 = Crafty.e('Floor, 2D, Canvas, Color, Elevator1, Collision') // elevator
     .attr({x: 980, y: 2075, w: 200, h: 25})
     .color(r, g, b);
 
@@ -184,16 +184,16 @@ function level3(){
 
   setInterval(function () {
     if(movedUp === false){
-      if(elevator.y > 300){
-        elevator.y = elevator.y - 1;
-        if(elevator.y <= 300){
+      if(elevator1.y > 300){
+        elevator1.y = elevator1.y - 1;
+        if(elevator1.y <= 300){
           movedUp = true;
         }
       }
     } else {
-      if(elevator.y > 299){
-        elevator.y = elevator.y + 1;
-        if(elevator.y > 2075){
+      if(elevator1.y > 299){
+        elevator1.y = elevator1.y + 1;
+        if(elevator1.y > 2075){
           movedUp = false;
         }
       }
