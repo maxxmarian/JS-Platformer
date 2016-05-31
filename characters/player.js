@@ -35,9 +35,9 @@ function player() {
           }
         });
     playerCharacter.reInit=function(){
+      playerCharacter.resetMotion();
         playerCharacter.removeComponent("Twoway");
         playerCharacter.addComponent("Twoway");
-        playerCharacter.resetMotion();
         playerCharacter.twoway(600);
         playerCharacter.jumper(650, ['UP_ARROW', 'W']);
         playerCharacter.gravityConst(1100);
@@ -52,7 +52,7 @@ function player() {
     //         playerCharacter.y = playerCharacter.y - 15;
     //     }
     // }
-    
+
 }
 
 
