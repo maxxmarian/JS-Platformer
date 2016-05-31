@@ -33,7 +33,7 @@ function level2(){
 
 
 function randomPlatform(){
-  Crafty.e('Floor, Wall, 2D, Canvas, Color') // x
+  Crafty.e('Floor, 2D, Canvas, Color') // x
     .attr({x: (Math.round(Math.random() * (3000 - 300 + 1) + 300)), y: (Math.round(Math.random() * (3000 - 300 + 1) + 300)), w: 50, h: 50})
     .color(r, g, b);
 }

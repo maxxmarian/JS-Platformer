@@ -1,6 +1,6 @@
 function level1(){
   playerCharacter.x = 100;
-  playerCharacter.y = 20;
+  playerCharacter.y = 35;
   playerCharacter.reInit();
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}

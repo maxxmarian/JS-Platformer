@@ -3,9 +3,10 @@ var movedUp = false;
 var elevator;
 var elevatorMove;
 function level3(){
+  playerCharacter.destroy();
+  player();
   playerCharacter.x = 100;
   playerCharacter.y = 35;
-  playerCharacter.reInit();
   playerCharacter.addComponent("GroundAttacher");
   Crafty.viewport.follow(playerCharacter, 0, 0);
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
@@ -167,6 +168,17 @@ function level3(){
     .attr({x: 2975, y: 0, w: 25, h: 275})
     .color(r, g, b);
 
+  Crafty.e('Tower')
+    .place(395, 2370)
+    .proximityFire(200, 50, 395, 2370);
+
+  Crafty.e('Tower')
+    .place(1120, 2370)
+    .proximityFire(200, 50, 1120, 2370);
+
+  Crafty.e('Tower')
+    .place(1895, 2370)
+    .proximityFire(200, 50, 1895, 2370);
 
   elevator1 = Crafty.e('Floor, 2D, Canvas, Color, Elevator1, Collision') // elevator
     .attr({x: 980, y: 2075, w: 200, h: 25})

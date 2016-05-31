@@ -30,7 +30,10 @@ function level4(){
   var movedLeft3 = false;
   var movedLeft4 = false;
   var movedLeft5 = false;
-
+  if (playerCharacter!=undefined){
+    playerCharacter.destroy();
+  }
+  player();
   playerCharacter.x = 100;
   playerCharacter.y = 35;
   playerCharacter.reInit();
@@ -39,111 +42,152 @@ function level4(){
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
 
   Crafty.e('Floor, 2D, Canvas, Color') // 1
-    .attr({x: 0, y: 400, w: 2400, h: 25})
-    .color(r, g, b);
+  .attr({x: 0, y: 400, w: 2400, h: 25})
+  .color(r, g, b);
 
-  Crafty.e('Ceiling, 2D, Canvas, Color') // 2
-    .attr({x: 0, y: 0, w: 3000, h: 25})
-    .color(r, g, b);
+Crafty.e('Ceiling, 2D, Canvas, Color') // 2
+  .attr({x: 0, y: 0, w: 3000, h: 25})
+  .color(r, g, b);
 
-  Crafty.e('Wall, 2D, Canvas, Color') // 3
-    .attr({x: 0, y: 0, w: 25, h: 400})
-    .color(r, g, b);
+Crafty.e('Wall, 2D, Canvas, Color') // 3
+  .attr({x: 0, y: 0, w: 25, h: 3000})
+  .color(r, g, b);
 
-  Crafty.e('Wall, 2D, Canvas, Color') // 4
-    .attr({x: 0, y: 0, w: 25, h: 400})
-    .color(r, g, b);
+Crafty.e('Wall, 2D, Canvas, Color') // 4
+  .attr({x: 0, y: 0, w: 25, h: 400})
+  .color(r, g, b);
 
-  Crafty.e('Wall, 2D, Canvas, Color') // 5
-    .attr({x: 2975, y: 0, w: 25, h: 3000})
-    .color(r, g, b);
+Crafty.e('Wall, 2D, Canvas, Color') // 5
+  .attr({x: 2975, y: 0, w: 25, h: 3000})
+  .color(r, g, b);
 
-  Crafty.e('Wall, 2D, Canvas, Color') // 6
-    .attr({x: 2375, y:400, w: 25, h: 2200})
-    .color(r, g, b);
+Crafty.e('Wall, 2D, Canvas, Color') // 6
+  .attr({x: 2375, y:400, w: 25, h: 2200})
+  .color(r, g, b);
 
-  Crafty.e('Floor, 2D, Canvas, Color') // 7
-    .attr({x: 0, y: 3000, w: 2400, h: 25})
-    .color(r, g, b);
+Crafty.e('Floor, 2D, Canvas, Color') // 7
+  .attr({x: 0, y: 3000, w: 2400, h: 25})
+  .color(r, g, b);
 
-  Crafty.e('Wall, 2D, Canvas, Color') // 8
-    .attr({x: 1900, y: 2000, w: 25, h: 1000})
-    .color(r, g, b);
+Crafty.e('Wall, 2D, Canvas, Color') // 8
+  .attr({x: 1900, y: 800, w: 25, h: 2200})
+  .color(r, g, b);
 
-  Crafty.e('Floor, 2D, Canvas, Color') // 9
-    .attr({x: 1900, y: 2830, w: 200, h: 25})
-    .color(r, g, b);
+Crafty.e('Floor, 2D, Canvas, Color') // 9
+  .attr({x: 1900, y: 2830, w: 200, h: 25})
+  .color(r, g, b);
 
-  Crafty.e('Floor, 2D, Canvas, Color') // 10
-    .attr({x: 1900, y: 2650, w: 200, h: 25})
-    .color(r, g, b);
+Crafty.e('Floor, 2D, Canvas, Color') // 10
+  .attr({x: 1900, y: 2650, w: 200, h: 25})
+  .color(r, g, b);
 
-  Crafty.e('Floor, 2D, Canvas, Color') // 11
-    .attr({x: 2250, y: 2470, w: 35, h: 35})
-    .color(r, g, b);
+Crafty.e('Floor, 2D, Canvas, Color') // 11
+  .attr({x: 2250, y: 2470, w: 35, h: 35})
+  .color(r, g, b);
 
-  Crafty.e('Floor, 2D, Canvas, Color') // 12
-    .attr({x: 2310, y: 2270, w: 65, h: 35})
-    .color(r, g, b);
+Crafty.e('Floor, 2D, Canvas, Color') // 12
+  .attr({x: 2310, y: 2270, w: 65, h: 35})
+  .color(r, g, b);
 
-  Crafty.e('Floor, 2D, Canvas, Color') // 13
-    .attr({x: 2110, y: 2100, w: 35, h: 35})
-    .color(r, g, b);
+Crafty.e('Floor, 2D, Canvas, Color') // 13
+  .attr({x: 2110, y: 2100, w: 35, h: 35})
+  .color(r, g, b);
 
-  Crafty.e('Floor, 2D, Canvas, Color') // 14
-    .attr({x: 1900, y: 2650, w: 200, h: 25})
-    .color(r, g, b);
+Crafty.e('Floor, 2D, Canvas, Color') // 14
+  .attr({x: 1900, y: 2650, w: 200, h: 25})
+  .color(r, g, b);
 
+Crafty.e('Floor, 2D, Canvas, Color') // 15
+  .attr({x: 350, y: 800, w: 1550, h: 25})
+  .color(r, g, b);
 
+Crafty.e('Wall, 2D, Canvas, Color') // 16
+  .attr({x: 350, y: 800, w: 25, h: 2150})
+  .color(r, g, b);
 
-
-
-  moveBlock1 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock1
-    .attr({x: 400, y: 300, w: 100, h: 100})
-    .color(0, 0, 0);
-
-  moveBlock2 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock2
-    .attr({x: 700, y: 300, w: 100, h: 100})
-    .color(0, 0, 0);
-
-  moveBlock3 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock3
-    .attr({x: 1000, y: 300, w: 100, h: 100})
-    .color(0, 0, 0);
-
-  moveBlock4 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock4
-    .attr({x: 1300, y: 300, w: 100, h: 100})
-    .color(0, 0, 0);
-
-  moveBlock5 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock5
-    .attr({x: 1600, y: 300, w: 100, h: 100})
-    .color(0, 0, 0);
+Crafty.e('Ceiling, 2D, Canvas, Color') // 17
+  .attr({x: 350, y: 2925, w: 1575, h: 25})
+  .color(r, g, b);
 
 
-  moveBlock6 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock6
-    .attr({x: 2875, y: 600, w: 100, h: 100})
-    .color(0, 0, 0);
-
-  moveBlock7 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock7
-    .attr({x: 2875, y: 1000, w: 100, h: 100})
-    .color(0, 0, 0);
-
-  moveBlock8 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock8
-    .attr({x: 2875, y: 1400, w: 100, h: 100})
-    .color(0, 0, 0);
-
-  moveBlock9 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock9
-    .attr({x: 2875, y: 1800, w: 100, h: 100})
-    .color(0, 0, 0);
-
-  moveBlock10 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock10
-    .attr({x: 2875, y: 2200, w: 100, h: 100})
-    .color(0, 0, 0);
-
-  elevator2 = Crafty.e('Floor, 2D, Canvas, Color, Elevator2, Collision') // elevator2
-      .attr({x: 2000, y: 2000, w: 200, h: 25})
-      .color(r, g, b);
 
 
+moveBlock1 = Crafty.e('Floor, 2D, Canvas, Color, Collision') // moveBlock1
+  .attr({x: 400, y: 300, w: 100, h: 100})
+  .color(0, 0, 0)
+  .onHit("Player",function(){
+    confirm("You Failed Level " + Crafty._current.slice(5));
+    restart();
+  });
+
+moveBlock2 = Crafty.e('Floor, 2D, Canvas, Color, Collision') // moveBlock2
+  .attr({x: 700, y: 300, w: 100, h: 100})
+  .color(0, 0, 0)
+  .onHit("Player",function(){
+    confirm("You Failed Level " + Crafty._current.slice(5));
+    restart();
+  });
+
+moveBlock3 = Crafty.e('Floor, 2D, Canvas, Color, Collision') // moveBlock3
+  .attr({x: 1000, y: 300, w: 100, h: 100})
+  .color(0, 0, 0)
+  .onHit("Player",function(){
+    confirm("You Failed Level " + Crafty._current.slice(5));
+    restart();
+  });
+
+moveBlock4 = Crafty.e('Floor, 2D, Canvas, Color, Collision') // moveBlock4
+  .attr({x: 1300, y: 300, w: 100, h: 100})
+  .color(0, 0, 0)
+  .onHit("Player",function(){
+    confirm("You Failed Level " + Crafty._current.slice(5));
+    restart();
+  });
+
+moveBlock5 = Crafty.e('Floor, 2D, Canvas, Color, Collision') // moveBlock5
+  .attr({x: 1600, y: 300, w: 100, h: 100})
+  .color(0, 0, 0)
+  .onHit("Player",function(){
+    confirm("You Failed Level " + Crafty._current.slice(5));
+    restart();
+  });
+
+
+moveBlock6 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock6
+  .attr({x: 2875, y: 600, w: 100, h: 100})
+  .color(0, 0, 0);
+
+moveBlock7 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock7
+  .attr({x: 2875, y: 1000, w: 100, h: 100})
+  .color(0, 0, 0);
+
+moveBlock8 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock8
+  .attr({x: 2875, y: 1400, w: 100, h: 100})
+  .color(0, 0, 0);
+
+moveBlock9 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock9
+  .attr({x: 2875, y: 1800, w: 100, h: 100})
+  .color(0, 0, 0);
+
+moveBlock10 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock10
+  .attr({x: 2875, y: 2200, w: 100, h: 100})
+  .color(0, 0, 0);
+
+elevator2 = Crafty.e('Floor, 2D, Canvas, Color, Elevator2, Collision') // elevator2
+  .attr({x: 2000, y: 2000, w: 200, h: 25})
+  .color(r, g, b);
+
+  Crafty.e('finishLine, 2D, Canvas, Color, Collision') // finish line 4
+      .attr({x: 1770, y: 2950, w: 6, h: 50})
+      .color(0, 0, 0, 0.5)
+      .checkHits("Player")
+      .bind("HitOn", function (hitdata) {
+        playerCharacter.removeComponent("GroundAttacher");
+        Crafty.trigger("levelChange");
+        confirm("You finished Level 5 with a time of "+timer.timeDisplay+"!");
+        confirm("Congragulations! Game complete!\nPlay again?");
+         location.reload();
+    });
 // set 1, y
 
     setInterval(function () {
@@ -332,19 +376,19 @@ function level4(){
 
 setInterval(function () {
   if(movedUp6 === false){
-    if(elevator2.y > 800){
-      elevator2.y = elevator2.y - 5;
-      if(elevator2.y <= 800){
+    if(elevator2.y > 900){
+      elevator2.y = elevator2.y - 2;
+      if(elevator2.y <= 900){
         movedUp6 = true;
       }
     }
   } else {
-    if(elevator2.y > 1999){
-      elevator2.y = elevator2.y + 5;
+    if(elevator2.y > 899){
+      elevator2.y = elevator2.y + 2;
       if(elevator2.y > 2000){
         movedUp6 = false;
       }
     }
   }
-}, 6);
+}, 5);
 }
