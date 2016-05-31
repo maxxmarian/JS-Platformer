@@ -52,7 +52,7 @@ function quantumFinish(){
     .color(0, 0, 0, 0.5)
     .checkHits("Player")
     .bind("HitOn", function (hitdata) {
-      confirm("You finished Level x with a time of "+timer.timeDisplay+"!");
+      confirm("You finished Level 3 with a time of "+timer.timeDisplay+"!");
       Crafty.enterScene("level3");
     });
 }
