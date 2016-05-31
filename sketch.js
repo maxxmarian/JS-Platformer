@@ -60,7 +60,7 @@ Crafty.scene('level0', level0);
 Crafty.scene('level1', level1);
 Crafty.scene('level2', level2);
 Crafty.scene('level3', level3);
-Crafty.scene('level4', level3);
+Crafty.scene('level4', level4);
 Crafty.enterScene("level0");
 
 function restart(){
@@ -74,52 +74,53 @@ function restart(){
       timer.timerEntity = Crafty.e("2D, DOM, Text").attr({ x: Math.abs(Crafty.viewport._x)+ 50, y: Math.abs(Crafty.viewport._y) + 50}).text('Elapsed Time:'+ timeDisplayCheck());
     }
 }
-function createTowers(){
-Crafty.c("Tower", {
+function createTowers() {
+    Crafty.c("Tower", {
 
-    init: function () {
-        Crafty.sprite("assets/watchtower.png", {towersprite:[0,0,50,120]});
-        this.addComponent('2D, Color, Canvas, towersprite');
-        this.color(255,255,255);
-        //Crafty.circle(this.x,this.y,15);
-        // this.w = 30;
-        // this.h = 30;
+        init: function () {
+            Crafty.sprite("assets/watchtower.png", {towersprite: [0, 0, 50, 120]});
+            this.addComponent('2D, Color, Canvas, towersprite');
+            this.color(255, 255, 255);
+            //Crafty.circle(this.x,this.y,15);
+            // this.w = 30;
+            // this.h = 30;
 
-    },
-    place: function(x, y) {
-        this.x = x;
-        this.y = y;
-        return this;
-    },
-    fire: function(updateInterval) {
-        outsideFire(updateInterval,this.x,this.y);
-        return this;
-    },
-    delayedFire: function(delay,updateInterval){
-        setTimeout(function(){outsideFire(updateInterval,this.x,this.y)},delay);
-    },
-    proximityFire: function(proximity, updateInterval, towerX, towerY){
-        var firedUpon=true;
-        playerCharacter.bind("Moved",function towerFire (moveData) {
-            if (firedUpon) {
-                if (playerCharacter._x <= towerX - proximity || playerCharacter._x >= towerX + proximity || playerCharacter._y <= towerY - proximity || playerCharacter._y >= towerY + proximity) {
-                    console.log("i should be false!");
-                    firedUpon = false;
+        },
+        place: function (x, y) {
+            this.x = x;
+            this.y = y;
+            return this;
+        },
+        fire: function (updateInterval) {
+            outsideFire(updateInterval, this.x, this.y);
+            return this;
+        },
+        delayedFire: function (delay, updateInterval) {
+            setTimeout(function () {
+                outsideFire(updateInterval, this.x, this.y)
+            }, delay);
+        },
+        proximityFire: function (proximity, updateInterval, towerX, towerY) {
+            var firedUpon = true;
+            playerCharacter.bind("Moved", function towerFire(moveData) {
+                if (firedUpon) {
+                    if (playerCharacter._x <= towerX - proximity || playerCharacter._x >= towerX + proximity || playerCharacter._y <= towerY - proximity || playerCharacter._y >= towerY + proximity) {
+                        console.log("i should be false!");
+                        firedUpon = false;
+                    }
                 }
-            }
-            if(playerCharacter._x>=towerX-proximity&&playerCharacter._x<=towerX+proximity&&playerCharacter._y>=towerY-proximity&&playerCharacter._y<=towerY+proximity&&firedUpon==false){
-                outsideFire(updateInterval, towerX, towerY);
-                firedUpon=true;
-            }
-            Crafty.bind("levelChange", function(){
-                playerCharacter.unbind("Moved", towerFire);
-                clearInterval(fireInt);
+                if (playerCharacter._x >= towerX - proximity && playerCharacter._x <= towerX + proximity && playerCharacter._y >= towerY - proximity && playerCharacter._y <= towerY + proximity && firedUpon == false) {
+                    outsideFire(updateInterval, towerX, towerY);
+                    firedUpon = true;
+                }
+                Crafty.bind("levelChange", function () {
+                    playerCharacter.unbind("Moved", towerFire);
+                    clearInterval(fireInt);
+                });
             });
-        });
-        //return this;
-    }
-});
-
+            //return this;
+        }
+    });
 function bulletTrackX(currentBullet){
     if (currentBullet._x<playerCharacter._x) {
         return  Math.abs(Math.abs(currentBullet._x - playerCharacter._x)/8 + currentBullet._x);
