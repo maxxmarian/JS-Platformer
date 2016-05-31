@@ -11,7 +11,7 @@ function timer() {
 
     timer.elapsedSeconds = timer.elapsedSeconds + 1;
     if (timer.elapsedSeconds >= 60) {
-        timer.elapsedMinutes = timer.elapsedSeconds / 60;
+        timer.elapsedMinutes = timer.elapsedMinutes+1;
         timer.elapsedSeconds = 0;
     }
     if (timer.elapsedSeconds === 0) {
@@ -37,4 +37,3 @@ function timeDisplayCheck(){
         return timer.timeDisplay;
     }
 }
-

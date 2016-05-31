@@ -1,7 +1,7 @@
 /**
  * Created by maxxx on 5/13/16.
  */
-
+var rePositionRate;
 function player() {
     playerCharacter = Crafty.e('Player, 2D, Canvas, Color, Twoway, Gravity, Collision, Persist')
         .attr({x: 90, y: 30, w: 50, h: 50})
@@ -11,31 +11,36 @@ function player() {
         .gravityConst(1100)
         .gravity('Floor')
         .checkHits('Wall')
-        //.onHit('MoveBlock', rePosition())
-        //.onHit('Ceiling', ceilingStop())
-        .bind("Moved", function(moveData) { // level failed message
-            if(moveData.axis==="y"&&moveData.oldValue<0||moveData.axis==="y"&&moveData.oldValue>=Crafty.viewport.bounds.max.y){
-                confirm("You Failed Level "+Crafty._current.slice(5));
+        .onHit('Elevator1', rePosition1)
+        .onHit('Elevator2', rePosition2)
+        .onHit('MoveBlock', rePosition3)
+
+        .onHit('Ceiling', ceilingStop)
+        .bind("Moved", function (moveData) { // level failed message
+            if (moveData.axis === "y" && moveData.oldValue < 0 || moveData.axis === "y" && moveData.oldValue >= Crafty.viewport.bounds.max.y) {
+                confirm("You Failed Level " + Crafty._current.slice(5));
                 restart();
             }
-            if(moveData.axis==="x"&&moveData.oldValue<0||moveData.axis==="x"&&moveData.oldValue>=Crafty.viewport.bounds.max.x){
-                confirm("You Failed Level "+Crafty._current.slice(5));
+            if (moveData.axis === "x" && moveData.oldValue < 0 || moveData.axis === "x" && moveData.oldValue >= Crafty.viewport.bounds.max.x) {
+                confirm("You Failed Level " + Crafty._current.slice(5));
                 restart();
             }
-            if (timer.timerEntity!==undefined){
+            if (timer.timerEntity !== undefined) {
                 timer.timerEntity.destroy()
             }
-            timer.timerEntity = Crafty.e("2D, DOM, Text").attr({ x: Math.abs(Crafty.viewport._x)+ 50, y: Math.abs(Crafty.viewport._y) + 50}).text('Elapsed Time:'+ timeDisplayCheck());
+            timer.timerEntity = Crafty.e("2D, DOM, Text").attr({
+                x: Math.abs(Crafty.viewport._x) + 50,
+                y: Math.abs(Crafty.viewport._y) + 50
+            }).text('Elapsed Time:' + timeDisplayCheck());
         })
         .bind("HitOn", function (hitData) {
-          if (playerCharacter.dx <= 0) {
-            playerCharacter.x = hitData[0].obj.x + 40;
-          } else {
-            playerCharacter.x = hitData[0].obj.x - 70;
-          }
+            if (playerCharacter.dx <= 0) {
+                playerCharacter.x = hitData[0].obj.x + 40;
+            } else {
+                playerCharacter.x = hitData[0].obj.x - 70;
+            }
         });
-    playerCharacter.reInit=function(){
-      playerCharacter.resetMotion();
+    playerCharacter.reInit = function () {
         playerCharacter.removeComponent("Twoway");
         playerCharacter.addComponent("Twoway");
         playerCharacter.twoway(600);
@@ -43,22 +48,39 @@ function player() {
         playerCharacter.gravityConst(1100);
         playerCharacter.gravity('Floor');
 
-    };
+    }
+}
+function ceilingStop(){
 
-    // function ceilingStop(){
-    //     if (playerCharacter.dy <= 0) {
-    //         playerCharacter.y = playerCharacter.y + 9;
-    //     } else {
-    //         playerCharacter.y = playerCharacter.y - 15;
-    //     }
-    // }
-
+  if (playerCharacter.dy <= 0) {
+    playerCharacter.y = playerCharacter.y + 9;
+  } else {
+    playerCharacter.y = playerCharacter.y - 30;
+  }
 }
 
+function rePosition1(){
+  rePositionRate = setInterval(function () {
+    playerCharacter.y = elevator1.y - 51;
+    clearInterval(rePositionRate);
+  }, 1);
+}
 
+function rePosition2(){
 
-// function rePosition(){
-//
-//   playerCharacter.vx = moveBlock1.vx;
-//   playerCharacter.y = moveBlock1.y - 50;
-// }
+  rePositionRate = setInterval(function () {
+    playerCharacter.y = elevator2.y - 51;
+    clearInterval(rePositionRate);
+  }, 1);
+}
+
+function rePosition3(){
+
+  if (playerCharacter.dy <= 0) {
+    playerCharacter.y = playerCharacter.y + 9;
+  } else {
+    playerCharacter.y = playerCharacter.y - 30;
+  }
+  // playerCharacter.vx = moveBlock1.vx;
+  //playerCharacter.y = elevator.y - 50;
+}

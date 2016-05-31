@@ -15,7 +15,7 @@ function level2(){
     .attr({x: 0, y: 0, w: 25, h: 3000})
     .color(r, g, b);
 
-  Crafty.e('Cieling, 2D, Canvas, Color') // 3
+  Crafty.e('Ceiling, 2D, Canvas, Color') // 3
     .attr({x: 0, y: 0, w: 3000, h: 25})
     .color(r, g, b);
 
@@ -33,7 +33,7 @@ function level2(){
 
 
 function randomPlatform(){
-  Crafty.e('Floor, Wall, 2D, Canvas, Color') // x
+  Crafty.e('Floor, 2D, Canvas, Color') // x
     .attr({x: (Math.round(Math.random() * (3000 - 300 + 1) + 300)), y: (Math.round(Math.random() * (3000 - 300 + 1) + 300)), w: 50, h: 50})
     .color(r, g, b);
 }
@@ -52,8 +52,7 @@ function quantumFinish(){
     .color(0, 0, 0, 0.5)
     .checkHits("Player")
     .bind("HitOn", function (hitdata) {
-      console.log("collide!");
-      confirm("You finished Level x with a time of "+timer.timeDisplay+"!");
+      confirm("You finished Level 3 with a time of "+timer.timeDisplay+"!");
       Crafty.enterScene("level3");
     });
 }

@@ -33,7 +33,7 @@ function level0() {
     .attr({x: 0, y: 3000, w: 2675, h: 25})
     .color(r, g, b);
 
-  Crafty.e('Wall, Wall, 2D, Canvas, Color') // 7
+  Crafty.e('Wall, 2D, Canvas, Color') // 7
     .attr({x: 2575, y: 500, w: 25, h: 2200})
     .color(r, g, b);
 
@@ -113,7 +113,7 @@ function level0() {
     .attr({x: 2670, y: 2130, w: 110, h: 100})
     .color(0, 0, 0);
   createTowers();
-
+  
 
 
   Crafty.e('finishLine, 2D, Canvas, Color, Collision') // finish line 1
@@ -123,7 +123,7 @@ function level0() {
     .bind("HitOn", function (hitdata) {
         console.log("collide!");
         Crafty.trigger("levelChange");
-        confirm("You finished Level 0 with a time of "+timer.timeDisplay+"!");
+        confirm("You finished Level 1 with a time of "+timer.timeDisplay+"!");
         Crafty.enterScene("level1");
     });
 }
