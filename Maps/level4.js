@@ -153,25 +153,45 @@ moveBlock5 = Crafty.e('Floor, 2D, Canvas, Color, Collision') // moveBlock5
   });
 
 
-moveBlock6 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock6
+moveBlock6 = Crafty.e('Wall, 2D, Canvas, Color, Collision') // moveBlock6
   .attr({x: 2875, y: 600, w: 100, h: 100})
-  .color(0, 0, 0);
+  .color(0, 0, 0)
+  .onHit("Player",function(){
+    confirm("You Failed Level " + Crafty._current.slice(5));
+    restart();
+  });
 
-moveBlock7 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock7
+moveBlock7 = Crafty.e('Wall, 2D, Canvas, Color, Collision') // moveBlock7
   .attr({x: 2875, y: 1000, w: 100, h: 100})
-  .color(0, 0, 0);
+  .color(0, 0, 0)
+  .onHit("Player",function(){
+    confirm("You Failed Level " + Crafty._current.slice(5));
+    restart();
+  });
 
-moveBlock8 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock8
+moveBlock8 = Crafty.e('Wall, 2D, Canvas, Color, Collision') // moveBlock8
   .attr({x: 2875, y: 1400, w: 100, h: 100})
-  .color(0, 0, 0);
+  .color(0, 0, 0)
+  .onHit("Player",function(){
+    confirm("You Failed Level " + Crafty._current.slice(5));
+    restart();
+  });
 
-moveBlock9 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock9
+moveBlock9 = Crafty.e('Wall, 2D, Canvas, Color, Collision') // moveBlock9
   .attr({x: 2875, y: 1800, w: 100, h: 100})
-  .color(0, 0, 0);
+  .color(0, 0, 0)
+  .onHit("Player",function(){
+    confirm("You Failed Level " + Crafty._current.slice(5));
+    restart();
+  });
 
-moveBlock10 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock10
+moveBlock10 = Crafty.e('Wall, 2D, Canvas, Color, Collision') // moveBlock10
   .attr({x: 2875, y: 2200, w: 100, h: 100})
-  .color(0, 0, 0);
+  .color(0, 0, 0)
+  .onHit("Player",function(){
+    confirm("You Failed Level " + Crafty._current.slice(5));
+    restart();
+  });
 
 elevator2 = Crafty.e('Floor, 2D, Canvas, Color, Elevator2, Collision') // elevator2
   .attr({x: 2000, y: 2000, w: 200, h: 25})

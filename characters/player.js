@@ -11,9 +11,9 @@ function player() {
         .gravityConst(1100)
         .gravity('Floor')
         .checkHits('Wall')
-        .onHit('Elevator1', rePosition1)
-        .onHit('Elevator2', rePosition2)
-        .onHit('MoveBlock', rePosition3)
+        // .onHit('Elevator1', rePosition1)
+        // .onHit('Elevator2', rePosition2)
+        // .onHit('MoveBlock', rePosition3)
 
         .onHit('Ceiling', ceilingStop)
         .bind("Moved", function (moveData) { // level failed message
@@ -59,28 +59,28 @@ function ceilingStop(){
   }
 }
 
-function rePosition1(){
-  rePositionRate = setInterval(function () {
-    playerCharacter.y = elevator1.y - 51;
-    clearInterval(rePositionRate);
-  }, 1);
-}
-
-function rePosition2(){
-
-  rePositionRate = setInterval(function () {
-    playerCharacter.y = elevator2.y - 51;
-    clearInterval(rePositionRate);
-  }, 1);
-}
-
-function rePosition3(){
-
-  if (playerCharacter.dy <= 0) {
-    playerCharacter.y = playerCharacter.y + 9;
-  } else {
-    playerCharacter.y = playerCharacter.y - 30;
-  }
+// function rePosition1(){
+//   rePositionRate = setInterval(function () {
+//     playerCharacter.y = elevator1.y - 51;
+//     clearInterval(rePositionRate);
+//   }, 1);
+// }
+//
+// function rePosition2(){
+//
+//   rePositionRate = setInterval(function () {
+//     playerCharacter.y = elevator2.y - 51;
+//     clearInterval(rePositionRate);
+//   }, 1);
+// }
+//
+// function rePosition3(){
+//
+//   if (playerCharacter.dy <= 0) {
+//     playerCharacter.y = playerCharacter.y + 9;
+//   } else {
+//     playerCharacter.y = playerCharacter.y - 30;
+//   }
   // playerCharacter.vx = moveBlock1.vx;
   //playerCharacter.y = elevator.y - 50;
-}
+//}
