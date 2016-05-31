@@ -64,9 +64,36 @@ function level4(){
     .attr({x: 0, y: 3000, w: 2400, h: 25})
     .color(r, g, b);
 
-  Crafty.e('Wall, 2D, Canvas, Color') // 7
+  Crafty.e('Wall, 2D, Canvas, Color') // 8
     .attr({x: 1900, y: 2000, w: 25, h: 1000})
     .color(r, g, b);
+
+  Crafty.e('Floor, 2D, Canvas, Color') // 9
+    .attr({x: 1900, y: 2830, w: 200, h: 25})
+    .color(r, g, b);
+
+  Crafty.e('Floor, 2D, Canvas, Color') // 10
+    .attr({x: 1900, y: 2650, w: 200, h: 25})
+    .color(r, g, b);
+
+  Crafty.e('Floor, 2D, Canvas, Color') // 11
+    .attr({x: 2250, y: 2470, w: 35, h: 35})
+    .color(r, g, b);
+
+  Crafty.e('Floor, 2D, Canvas, Color') // 12
+    .attr({x: 2310, y: 2270, w: 65, h: 35})
+    .color(r, g, b);
+
+  Crafty.e('Floor, 2D, Canvas, Color') // 13
+    .attr({x: 2110, y: 2100, w: 35, h: 35})
+    .color(r, g, b);
+
+  Crafty.e('Floor, 2D, Canvas, Color') // 14
+    .attr({x: 1900, y: 2650, w: 200, h: 25})
+    .color(r, g, b);
+
+
+
 
 
   moveBlock1 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock1
@@ -109,6 +136,11 @@ function level4(){
   moveBlock10 = Crafty.e('Wall, Floor, 2D, Canvas, Color') // moveBlock10
     .attr({x: 2875, y: 2200, w: 100, h: 100})
     .color(0, 0, 0);
+
+  moveBlock11 = Crafty.e('Floor, 2D, Canvas, Color, Elevator, Collision') // moveBlock11
+      .attr({x: 980, y: 2075, w: 200, h: 25})
+      .color(r, g, b);
+
 
 // set 1, y
 
@@ -293,4 +325,24 @@ function level4(){
         }
       }
     }, 5);
+
+// set 3, y
+
+setInterval(function () {
+  if(movedUp6 === false){
+    if(moveBlock11.y > 25){
+      moveBlock11.y = moveBlock11.y - 5;
+      if(moveBlock11.y <= 25){
+        movedUp6 = true;
+      }
+    }
+  } else {
+    if(moveBlock11.y > 24){
+      moveBlock11.y = moveBlock11.y + 5;
+      if(moveBlock11.y > 300){
+        movedUp6 = false;
+      }
+    }
+  }
+}, 6);
 }
