@@ -5,9 +5,9 @@ function level3(){
   playerCharacter.x = 2200;
   playerCharacter.y = 2350;
   playerCharacter.reInit();
-  playerCharacter.addComponent("GroundAttacher")
+  playerCharacter.addComponent("GroundAttacher");
   Crafty.viewport.follow(playerCharacter, 0, 0);
-  Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
+  Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}};
 
 
   Crafty.e('Floor, 2D, Canvas, Color') // 1
