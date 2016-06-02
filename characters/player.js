@@ -33,15 +33,20 @@ function player() {
                 y: Math.abs(Crafty.viewport._y) + 50
             }).text('Elapsed Time:' + timeDisplayCheck());
         })
-        .bind("HitOn", function (hitData) {
-            if (playerCharacter.dx <= 0) {
-                playerCharacter.x = hitData[0].obj.x + 40;
-            } else {
-                playerCharacter.x = hitData[0].obj.x - 70;
-            }
-        });
+        .onHit('Wall',function wallHit(hitObjectArray){
+			if (playerCharacter.dx < 0) {
+				playerCharacter.x=hitObjectArray[0].obj._x+hitObjectArray[0].obj._w;
+			}
+			if(playerCharacter.dx>0) {
+				playerCharacter.x=hitObjectArray[0].obj._x-playerCharacter._w;
+			}
+			if(playerCharacter.dx === 0){
+				playerCharacter.x=playerCharacter._x;
+			}
+		})
     playerCharacter.reInit = function () {
         playerCharacter.removeComponent("Twoway");
+		playerCharacter.resetMotion();
         playerCharacter.addComponent("Twoway");
         playerCharacter.twoway(600);
         playerCharacter.jumper(650, ['UP_ARROW', 'W']);
