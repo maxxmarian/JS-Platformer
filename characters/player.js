@@ -55,12 +55,12 @@ function player() {
 
     }
 }
-function ceilingStop(){
+function ceilingStop(hitObjectArray){
 
-  if (playerCharacter.dy <= 0) {
-    playerCharacter.y = playerCharacter.y + 9;
+  if (playerCharacter.dy < 0) {
+    playerCharacter.y = hitObjectArray[0].obj._y+hitObjectArray[0].obj._h;
   } else {
-    playerCharacter.y = playerCharacter.y - 30;
+    playerCharacter.y = hitObjectArray[0].obj._y-playerCharacter.h;
   }
 }
 
