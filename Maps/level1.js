@@ -6,8 +6,8 @@ function level1(){
   Crafty.viewport.bounds = {min: {x: 0, y: 0}, max: {x: 3025, y: 3025}}
 
   Crafty.e('Tower')
-      .place(300,300)
-      .proximityFire(100,50,300,300);
+      .place(300,380)
+      .proximityFire(100,50,300,380);
 
   Crafty.e('Floor, 2D, Canvas, Color') // 1
     .attr({x: 0, y: 500, w: 2600, h: 25})
@@ -72,7 +72,11 @@ function level1(){
   Crafty.e('Ceiling, 2D, Canvas, Color') // 16
     .attr({x: 350, y: 2810, w: 1800, h: 25})
     .color(r, g, b);
-
+  
+  Crafty.e('Tower')
+	.place(575,1150)
+	.proximityFire(350,50,575,1150);  
+  
   Crafty.e('Floor, 2D, Canvas, Color') // 17
     .attr({x: 2650, y: 2800, w: 350, h: 25})
     .color(r, g, b);
@@ -85,7 +89,7 @@ function level1(){
     .attr({x: 2125, y: 2250, w: 25, h: 585})
     .color(r, g, b);
 
-  Crafty.e('Ceiling, 2D, Canvas, Color') // 20
+  Crafty.e('Floor, Ceiling, 2D, Canvas, Color') // 20
     .attr({x: 2125, y: 2250, w: 875, h: 25})
     .color(r, g, b);
 

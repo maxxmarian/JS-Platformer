@@ -179,6 +179,10 @@ function level3(){
   Crafty.e('Tower')
     .place(1895, 2370)
     .proximityFire(200, 50, 1895, 2370);
+	
+Crafty.e('Tower')
+	.place(1025,1980)
+	.proximityFire(400,50,1025,1990);
 
   elevator1 = Crafty.e('Floor, 2D, Canvas, Color, Elevator1, Collision') // elevator
     .attr({x: 980, y: 2075, w: 200, h: 25})
@@ -210,5 +214,5 @@ function level3(){
         }
       }
     }
-  }, 5);
+  }, 10);
 }

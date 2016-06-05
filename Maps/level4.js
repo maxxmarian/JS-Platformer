@@ -193,6 +193,10 @@ moveBlock10 = Crafty.e('Wall, 2D, Canvas, Color, Collision') // moveBlock10
     restart();
   });
 
+Crafty.e('Tower')
+	.place(1925,2540)
+	.proximityFire(150,50,1925,2540)
+ 
 elevator2 = Crafty.e('Floor, 2D, Canvas, Color, Elevator2, Collision') // elevator2
   .attr({x: 2000, y: 2000, w: 200, h: 25})
   .color(r, g, b);
