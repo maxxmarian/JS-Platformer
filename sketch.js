@@ -24,9 +24,9 @@ var timerEntity;
 
 
 function setup(){
-  createCanvas(200,200);
-  winWidth=windowWidth;
-  winHeight=windowHeight;
+  createCanvas(0,0);
+  winWidth=windowWidth-20;
+  winHeight=windowHeight-20;
   colorTrip();
 
 }
